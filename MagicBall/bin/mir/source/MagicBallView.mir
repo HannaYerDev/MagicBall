@@ -1,0 +1,2681 @@
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Graphics,1,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [System,3,14,20]; ]
+import Toybox.System;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 4; @symbol_importdef<0> = [Toybox,4,7,13]; @symbol_importdef<1> = [WatchUi,4,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 6; @symbol_classdef = [MagicBallView,6,6,19]; @symbol_extends<0> = [WatchUi,6,28,35]; @symbol_extends<1> = [View,6,36,40]; ]
+class MagicBallView extends WatchUi.View {
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 7; @position = 8; @symbol_vardef = [_showMessage,7,8,20]; ]
+    var _showMessage = false;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 8; @position = 8; @symbol_vardef = [_message,8,8,16]; ]
+    var _message = "Ask me";
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 9; @position = 8; @symbol_vardef = [_isPressed,9,8,18]; ]
+    var _isPressed = false;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 10; @position = 8; @symbol_vardef = [_timer,10,8,14]; ]
+    var _timer;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 11; @position = 8; @symbol_vardef = [_animTimer,11,8,18]; ]
+    var _animTimer;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 12; @position = 8; @symbol_vardef = [_returnTimer,12,8,20]; ]
+    var _returnTimer;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 13; @position = 8; @symbol_vardef = [_animTick,13,8,17]; ]
+    var _animTick = 0;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 14; @position = 8; @symbol_vardef = [_messageTick,14,8,20]; ]
+    var _messageTick = 0;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 15; @position = 8; @symbol_vardef = [_messageColor,15,8,21]; ]
+    var _messageColor;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 16; @position = 8; @symbol_vardef = [_currentAnswerKind,16,8,26]; ]
+    var _currentAnswerKind;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 18; @position = 8; @symbol_vardef = [COLOR_BG,18,8,16]; ]
+    var COLOR_BG;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 19; @position = 8; @symbol_vardef = [COLOR_OUTER_RING,19,8,24]; ]
+    var COLOR_OUTER_RING;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 20; @position = 8; @symbol_vardef = [COLOR_ORB,20,8,17]; ]
+    var COLOR_ORB;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 21; @position = 8; @symbol_vardef = [COLOR_ORB_PRESSED,21,8,25]; ]
+    var COLOR_ORB_PRESSED;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 22; @position = 8; @symbol_vardef = [COLOR_INNER,22,8,19]; ]
+    var COLOR_INNER;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 23; @position = 8; @symbol_vardef = [COLOR_ACCENT,23,8,20]; ]
+    var COLOR_ACCENT;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 24; @position = 8; @symbol_vardef = [COLOR_TEXT,24,8,18]; ]
+    var COLOR_TEXT;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 26; @position = 8; @symbol_vardef = [COLOR_TEXT_POSITIVE,26,8,27]; ]
+    var COLOR_TEXT_POSITIVE;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 27; @position = 8; @symbol_vardef = [COLOR_TEXT_NEGATIVE,27,8,27]; ]
+    var COLOR_TEXT_NEGATIVE;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 28; @position = 8; @symbol_vardef = [COLOR_TEXT_MAYBE,28,8,24]; ]
+    var COLOR_TEXT_MAYBE;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 30; @symbol_functiondef = [initialize,30,13,23]; ]
+    function initialize() as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_30_26_47_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 31 8 ]
+        symbol [ View %tmp.2 31 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 31 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 32 8 ]
+        symbol [ Timer %tmp.7 32 25 30 ];
+        %tmp.7 = getv ? :Timer;
+        symbol [ Timer %tmp.8 32 31 36 ];
+        %tmp.8 = getv function ? %tmp.7 :Timer;
+        %tmp.4 = newc %tmp.8 ();
+        symbol [ _animTimer ? 32 8 18 ];
+        putv self :_animTimer %tmp.4;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 33 8 ]
+        symbol [ Timer %tmp.12 33 27 32 ];
+        %tmp.12 = getv ? :Timer;
+        symbol [ Timer %tmp.13 33 33 38 ];
+        %tmp.13 = getv function ? %tmp.12 :Timer;
+        %tmp.9 = newc %tmp.13 ();
+        symbol [ _returnTimer ? 33 8 20 ];
+        putv self :_returnTimer %tmp.9;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 34 8 ]
+        symbol [ _animTimer %tmp.15 34 8 18 ];
+        %tmp.15 = getv ? :_animTimer;
+        symbol [ start %tmp.16 34 19 24 ];
+        %tmp.16 = getv function %tmp.15 :start;
+        %tmp.17 = self;
+        symbol [ method %tmp.18 34 25 31 ];
+        %tmp.18 = getv function %tmp.17 :method;
+        %tmp.20 = const :onAnimTick;
+        symbol [ onAnimTick %tmp.20 34 33 43 const ];
+        %tmp.21 = invoke %tmp.17 %tmp.18(%tmp.20);
+        %tmp.22 = 100;
+        %tmp.23 = true;
+        invoke %tmp.15 %tmp.16(%tmp.21, %tmp.22, %tmp.23);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 37 8 ]
+        symbol [ Graphics %tmp.24 37 19 27 ];
+        %tmp.24 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.25 37 28 39 ];
+        %tmp.25 = getv function %tmp.24 :createColor;
+        %tmp.26 = 255;
+        %tmp.27 = 6;
+        %tmp.28 = 8;
+        %tmp.29 = 20;
+        %tmp.30 = invoke %tmp.24 %tmp.25(%tmp.26, %tmp.27, %tmp.28, %tmp.29);
+        symbol [ COLOR_BG ? 37 8 16 ];
+        putv self :COLOR_BG %tmp.30;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 38 8 ]
+        symbol [ Graphics %tmp.31 38 20 28 ];
+        %tmp.31 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.32 38 29 40 ];
+        %tmp.32 = getv function %tmp.31 :createColor;
+        %tmp.33 = 255;
+        %tmp.34 = 38;
+        %tmp.35 = 36;
+        %tmp.36 = 80;
+        %tmp.37 = invoke %tmp.31 %tmp.32(%tmp.33, %tmp.34, %tmp.35, %tmp.36);
+        symbol [ COLOR_ORB ? 38 8 17 ];
+        putv self :COLOR_ORB %tmp.37;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 39 8 ]
+        symbol [ Graphics %tmp.38 39 28 36 ];
+        %tmp.38 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.39 39 37 48 ];
+        %tmp.39 = getv function %tmp.38 :createColor;
+        %tmp.40 = 255;
+        %tmp.41 = 45;
+        %tmp.42 = 60;
+        %tmp.43 = 130;
+        %tmp.44 = invoke %tmp.38 %tmp.39(%tmp.40, %tmp.41, %tmp.42, %tmp.43);
+        symbol [ COLOR_ORB_PRESSED ? 39 8 25 ];
+        putv self :COLOR_ORB_PRESSED %tmp.44;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 40 8 ]
+        symbol [ Graphics %tmp.45 40 22 30 ];
+        %tmp.45 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.46 40 31 42 ];
+        %tmp.46 = getv function %tmp.45 :createColor;
+        %tmp.47 = 255;
+        %tmp.48 = 10;
+        %tmp.49 = 12;
+        %tmp.50 = 28;
+        %tmp.51 = invoke %tmp.45 %tmp.46(%tmp.47, %tmp.48, %tmp.49, %tmp.50);
+        symbol [ COLOR_INNER ? 40 8 19 ];
+        putv self :COLOR_INNER %tmp.51;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 41 8 ]
+        symbol [ Graphics %tmp.52 41 23 31 ];
+        %tmp.52 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.53 41 32 43 ];
+        %tmp.53 = getv function %tmp.52 :createColor;
+        %tmp.54 = 255;
+        %tmp.55 = 120;
+        %tmp.56 = 140;
+        %tmp.57 = 255;
+        %tmp.58 = invoke %tmp.52 %tmp.53(%tmp.54, %tmp.55, %tmp.56, %tmp.57);
+        symbol [ COLOR_ACCENT ? 41 8 20 ];
+        putv self :COLOR_ACCENT %tmp.58;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 42 8 ]
+        symbol [ Graphics %tmp.59 42 27 35 ];
+        %tmp.59 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.60 42 36 47 ];
+        %tmp.60 = getv function %tmp.59 :createColor;
+        %tmp.61 = 255;
+        %tmp.62 = 80;
+        %tmp.63 = 90;
+        %tmp.64 = 160;
+        %tmp.65 = invoke %tmp.59 %tmp.60(%tmp.61, %tmp.62, %tmp.63, %tmp.64);
+        symbol [ COLOR_OUTER_RING ? 42 8 24 ];
+        putv self :COLOR_OUTER_RING %tmp.65;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 43 8 ]
+        symbol [ Graphics %tmp.66 43 21 29 ];
+        %tmp.66 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.67 43 30 41 ];
+        %tmp.67 = getv function %tmp.66 :createColor;
+        %tmp.68 = 255;
+        %tmp.69 = 230;
+        %tmp.70 = 235;
+        %tmp.71 = 255;
+        %tmp.72 = invoke %tmp.66 %tmp.67(%tmp.68, %tmp.69, %tmp.70, %tmp.71);
+        symbol [ COLOR_TEXT ? 43 8 18 ];
+        putv self :COLOR_TEXT %tmp.72;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 44 8 ]
+        symbol [ Graphics %tmp.73 44 30 38 ];
+        %tmp.73 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.74 44 39 50 ];
+        %tmp.74 = getv function %tmp.73 :createColor;
+        %tmp.75 = 255;
+        %tmp.76 = 120;
+        %tmp.77 = 230;
+        %tmp.78 = 200;
+        %tmp.79 = invoke %tmp.73 %tmp.74(%tmp.75, %tmp.76, %tmp.77, %tmp.78);
+        symbol [ COLOR_TEXT_POSITIVE ? 44 8 27 ];
+        putv self :COLOR_TEXT_POSITIVE %tmp.79;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 45 8 ]
+        symbol [ Graphics %tmp.80 45 30 38 ];
+        %tmp.80 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.81 45 39 50 ];
+        %tmp.81 = getv function %tmp.80 :createColor;
+        %tmp.82 = 255;
+        %tmp.83 = 230;
+        %tmp.84 = 120;
+        %tmp.85 = 150;
+        %tmp.86 = invoke %tmp.80 %tmp.81(%tmp.82, %tmp.83, %tmp.84, %tmp.85);
+        symbol [ COLOR_TEXT_NEGATIVE ? 45 8 27 ];
+        putv self :COLOR_TEXT_NEGATIVE %tmp.86;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 46 8 ]
+        symbol [ Graphics %tmp.87 46 27 35 ];
+        %tmp.87 = getm $.Toybox.Graphics;
+        symbol [ createColor %tmp.88 46 36 47 ];
+        %tmp.88 = getv function %tmp.87 :createColor;
+        %tmp.89 = 255;
+        %tmp.90 = 170;
+        %tmp.91 = 140;
+        %tmp.92 = 240;
+        %tmp.93 = invoke %tmp.87 %tmp.88(%tmp.89, %tmp.90, %tmp.91, %tmp.92);
+        symbol [ COLOR_TEXT_MAYBE ? 46 8 24 ];
+        putv self :COLOR_TEXT_MAYBE %tmp.93;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_30_26_47_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 49; @symbol_functiondef = [setPressed,49,13,23]; @symbol_param<0> = [pressed,49,24,31]; ]
+    function setPressed(pressed) as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_49_41_52_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 50 8 ]
+        %tmp.1 = lgetv %pressed;
+        symbol [ pressed %tmp.1 50 21 28 ];
+        symbol [ _isPressed ? 50 8 18 ];
+        putv self :_isPressed %tmp.1;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 51 8 ]
+        symbol [ WatchUi %tmp.2 51 8 15 ];
+        %tmp.2 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.3 51 16 29 ];
+        %tmp.3 = getv function %tmp.2 :requestUpdate;
+        invoke %tmp.2 %tmp.3();
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_49_41_52_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 54; @symbol_functiondef = [showAnswer,54,13,23]; @symbol_param<0> = [answer,54,24,30]; ]
+    function showAnswer(answer) as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_54_40_70_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 55 8 ]
+        %tmp.1 = true;
+        symbol [ _showMessage ? 55 8 20 ];
+        putv self :_showMessage %tmp.1;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 56 8 ]
+        %tmp.2 = lgetv %answer;
+        symbol [ answer %tmp.2 56 19 25 ];
+        symbol [ text %tmp.3 56 26 30 ];
+        %tmp.3 = getv %tmp.2 :text;
+        symbol [ _message ? 56 8 16 ];
+        putv self :_message %tmp.3;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 57 8 ]
+        %tmp.4 = lgetv %answer;
+        symbol [ answer %tmp.4 57 29 35 ];
+        symbol [ kind %tmp.5 57 36 40 ];
+        %tmp.5 = getv %tmp.4 :kind;
+        symbol [ _currentAnswerKind ? 57 8 26 ];
+        putv self :_currentAnswerKind %tmp.5;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 58 8 ]
+        %tmp.6 = self;
+        symbol [ colorForAnswerKind %tmp.7 58 24 42 ];
+        %tmp.7 = getv function %tmp.6 :colorForAnswerKind;
+        %tmp.8 = lgetv %answer;
+        symbol [ answer %tmp.8 58 43 49 ];
+        symbol [ kind %tmp.9 58 50 54 ];
+        %tmp.9 = getv %tmp.8 :kind;
+        %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+        symbol [ _messageColor ? 58 8 21 ];
+        putv self :_messageColor %tmp.10;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 60 8 ]
+        %tmp.11 = 0;
+        symbol [ _messageTick ? 60 8 20 ];
+        putv self :_messageTick %tmp.11;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 62 8 ]
+        symbol [ System %tmp.12 62 8 14 ];
+        %tmp.12 = getm $.Toybox.System;
+        symbol [ println %tmp.13 62 15 22 ];
+        %tmp.13 = getv function %tmp.12 :println;
+        %tmp.14 = "answer=";
+        %tmp.15 = lgetv %answer;
+        symbol [ answer %tmp.15 62 35 41 ];
+        symbol [ text %tmp.16 62 42 46 ];
+        %tmp.16 = getv %tmp.15 :text;
+        %tmp.17 = add %tmp.14 %tmp.16;
+        invoke %tmp.12 %tmp.13(%tmp.17);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 63 8 ]
+        symbol [ System %tmp.18 63 8 14 ];
+        %tmp.18 = getm $.Toybox.System;
+        symbol [ println %tmp.19 63 15 22 ];
+        %tmp.19 = getv function %tmp.18 :println;
+        %tmp.20 = "kind=";
+        %tmp.21 = lgetv %answer;
+        symbol [ answer %tmp.21 63 33 39 ];
+        symbol [ kind %tmp.22 63 40 44 ];
+        %tmp.22 = getv %tmp.21 :kind;
+        %tmp.23 = add %tmp.20 %tmp.22;
+        invoke %tmp.18 %tmp.19(%tmp.23);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 64 8 ]
+        symbol [ System %tmp.24 64 8 14 ];
+        %tmp.24 = getm $.Toybox.System;
+        symbol [ println %tmp.25 64 15 22 ];
+        %tmp.25 = getv function %tmp.24 :println;
+        %tmp.26 = "messageColor=";
+        symbol [ _messageColor %tmp.28 64 41 54 ];
+        %tmp.28 = getv ? :_messageColor;
+        symbol [ toString %tmp.29 64 55 63 ];
+        %tmp.29 = getv function %tmp.28 :toString;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        %tmp.31 = add %tmp.26 %tmp.30;
+        invoke %tmp.24 %tmp.25(%tmp.31);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 66 8 ]
+        symbol [ _returnTimer %tmp.33 66 8 20 ];
+        %tmp.33 = getv ? :_returnTimer;
+        symbol [ stop %tmp.34 66 21 25 ];
+        %tmp.34 = getv function %tmp.33 :stop;
+        invoke %tmp.33 %tmp.34();
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 67 8 ]
+        symbol [ _returnTimer %tmp.36 67 8 20 ];
+        %tmp.36 = getv ? :_returnTimer;
+        symbol [ start %tmp.37 67 21 26 ];
+        %tmp.37 = getv function %tmp.36 :start;
+        %tmp.38 = self;
+        symbol [ method %tmp.39 67 27 33 ];
+        %tmp.39 = getv function %tmp.38 :method;
+        %tmp.41 = const :onReturnToAsk;
+        symbol [ onReturnToAsk %tmp.41 67 35 48 const ];
+        %tmp.42 = invoke %tmp.38 %tmp.39(%tmp.41);
+        %tmp.43 = 5000;
+        %tmp.44 = false;
+        invoke %tmp.36 %tmp.37(%tmp.42, %tmp.43, %tmp.44);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 69 8 ]
+        symbol [ WatchUi %tmp.45 69 8 15 ];
+        %tmp.45 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.46 69 16 29 ];
+        %tmp.46 = getv function %tmp.45 :requestUpdate;
+        invoke %tmp.45 %tmp.46();
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_54_40_70_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 81; @symbol_functiondef = [colorForAnswerKind,81,13,31]; @symbol_param<0> = [kind,81,32,36]; ]
+    function colorForAnswerKind(kind) {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_81_38_92_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 82 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_8_88_8_if_stmt:
+        %tmp.1 = lgetv %kind;
+        symbol [ kind %tmp.1 82 12 16 ];
+        symbol [ ANSWER_POSITIVE %tmp.3 82 20 35 ];
+        %tmp.3 = getv ? :ANSWER_POSITIVE;
+        %tmp.4 = eq %tmp.1 %tmp.3;
+        bf %tmp.4 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_8_88_8_if_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_8_88_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_37_85_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 83 12 ]
+        symbol [ System %tmp.5 83 12 18 ];
+        %tmp.5 = getm $.Toybox.System;
+        symbol [ println %tmp.6 83 19 26 ];
+        %tmp.6 = getv function %tmp.5 :println;
+        %tmp.7 = "branch POSITIVE";
+        invoke %tmp.5 %tmp.6(%tmp.7);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 84 12 ]
+        symbol [ COLOR_TEXT_POSITIVE %tmp.9 84 19 38 ];
+        %tmp.9 = getv ? :COLOR_TEXT_POSITIVE;
+        ret %tmp.9;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_37_85_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_8_88_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_8_88_8_if_false:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 85 15 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_15_88_8_if_stmt:
+        %tmp.10 = lgetv %kind;
+        symbol [ kind %tmp.10 85 19 23 ];
+        symbol [ ANSWER_NEGATIVE %tmp.12 85 27 42 ];
+        %tmp.12 = getv ? :ANSWER_NEGATIVE;
+        %tmp.13 = eq %tmp.10 %tmp.12;
+        bf %tmp.13 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_15_88_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_15_88_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_44_88_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 86 12 ]
+        symbol [ System %tmp.14 86 12 18 ];
+        %tmp.14 = getm $.Toybox.System;
+        symbol [ println %tmp.15 86 19 26 ];
+        %tmp.15 = getv function %tmp.14 :println;
+        %tmp.16 = "branch NEGATIVE";
+        invoke %tmp.14 %tmp.15(%tmp.16);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 87 12 ]
+        symbol [ COLOR_TEXT_NEGATIVE %tmp.18 87 19 38 ];
+        %tmp.18 = getv ? :COLOR_TEXT_NEGATIVE;
+        ret %tmp.18;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_44_88_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_15_88_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_85_15_88_8_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_82_8_88_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 90 8 ]
+        symbol [ System %tmp.19 90 8 14 ];
+        %tmp.19 = getm $.Toybox.System;
+        symbol [ println %tmp.20 90 15 22 ];
+        %tmp.20 = getv function %tmp.19 :println;
+        %tmp.21 = "branch NEUTRAL";
+        invoke %tmp.19 %tmp.20(%tmp.21);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 91 8 ]
+        symbol [ COLOR_TEXT_MAYBE %tmp.23 91 15 31 ];
+        %tmp.23 = getv ? :COLOR_TEXT_MAYBE;
+        ret %tmp.23;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_81_38_92_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 94; @symbol_functiondef = [onReturnToAsk,94,13,26]; ]
+    function onReturnToAsk() as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_94_37_96_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 95 8 ]
+        %tmp.1 = self;
+        symbol [ showButton %tmp.2 95 8 18 ];
+        %tmp.2 = getv function %tmp.1 :showButton;
+        invoke %tmp.1 %tmp.2();
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_94_37_96_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 98; @symbol_functiondef = [showButton,98,13,23]; ]
+    function showButton() as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_98_34_102_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 99 8 ]
+        %tmp.1 = false;
+        symbol [ _showMessage ? 99 8 20 ];
+        putv self :_showMessage %tmp.1;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 100 8 ]
+        %tmp.2 = false;
+        symbol [ _isPressed ? 100 8 18 ];
+        putv self :_isPressed %tmp.2;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 101 8 ]
+        symbol [ WatchUi %tmp.3 101 8 15 ];
+        %tmp.3 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.4 101 16 29 ];
+        %tmp.4 = getv function %tmp.3 :requestUpdate;
+        invoke %tmp.3 %tmp.4();
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_98_34_102_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 104; @symbol_functiondef = [onTimerDone,104,13,24]; ]
+    function onTimerDone() as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_104_35_106_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 105 8 ]
+        %tmp.1 = self;
+        symbol [ showButton %tmp.2 105 8 18 ];
+        %tmp.2 = getv function %tmp.1 :showButton;
+        invoke %tmp.1 %tmp.2();
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_104_35_106_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 108; @symbol_functiondef = [onAnimTick,108,13,23]; ]
+    function onAnimTick() as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_108_34_118_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 109 8 ]
+        symbol [ _animTick %tmp.1 109 8 17 ];
+        %tmp.1 = getv self :_animTick;
+        %tmp.2 = 1;
+        %tmp.3 = add %tmp.1 %tmp.2;
+        symbol [ _animTick ? 109 8 17 ];
+        putv self :_animTick dup %tmp.3;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 111 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_8_115_8_if_stmt:
+        symbol [ _showMessage %tmp.5 111 12 24 ];
+        %tmp.5 = getv ? :_showMessage;
+        bf %tmp.5 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_8_115_8_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_8_115_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_26_113_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 112 12 ]
+        symbol [ _messageTick %tmp.6 112 12 24 ];
+        %tmp.6 = getv self :_messageTick;
+        %tmp.7 = 1;
+        %tmp.8 = add %tmp.6 %tmp.7;
+        symbol [ _messageTick ? 112 12 24 ];
+        putv self :_messageTick dup %tmp.8;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_26_113_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_8_115_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_8_115_8_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_113_15_115_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 114 12 ]
+        %tmp.9 = 0;
+        symbol [ _messageTick ? 114 12 24 ];
+        putv self :_messageTick %tmp.9;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_113_15_115_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_111_8_115_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 117 8 ]
+        symbol [ WatchUi %tmp.10 117 8 15 ];
+        %tmp.10 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.11 117 16 29 ];
+        %tmp.11 = getv function %tmp.10 :requestUpdate;
+        invoke %tmp.10 %tmp.11();
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_108_34_118_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 120; @symbol_functiondef = [onUpdate,120,13,21]; @symbol_param<0> = [dc,120,22,24]; @symbol_param<0>_type<0> = [Graphics,120,28,36]; @symbol_param<0>_type<1> = [Dc,120,37,39]; ]
+    function onUpdate(dc as Graphics.Dc) as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 121 8 ]
+        symbol [ View %tmp.2 121 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ onUpdate %tmp.3 121 13 21 ];
+        %tmp.3 = getv function %tmp.2 :onUpdate;
+        %tmp.4 = lgetv %dc;
+        symbol [ dc %tmp.4 121 22 24 ];
+        invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 123 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %w.1 = local;
+        symbol [ w %w.1 123 12 13 ];
+        %tmp.5 = lgetv %dc;
+        symbol [ dc %tmp.5 123 16 18 ];
+        symbol [ getWidth %tmp.6 123 19 27 ];
+        %tmp.6 = getv function %tmp.5 :getWidth;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %w.1 %tmp.7;
+        symbol [ w %w.1 123 12 13 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 124 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %h.2 = local;
+        symbol [ h %h.2 124 12 13 ];
+        %tmp.8 = lgetv %dc;
+        symbol [ dc %tmp.8 124 16 18 ];
+        symbol [ getHeight %tmp.9 124 19 28 ];
+        %tmp.9 = getv function %tmp.8 :getHeight;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        lputv %h.2 %tmp.10;
+        symbol [ h %h.2 124 12 13 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 126 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %cx.3 = local;
+        symbol [ cx %cx.3 126 12 14 ];
+        %tmp.11 = lgetv %w.1;
+        symbol [ w %tmp.11 126 17 18 ];
+        %tmp.12 = 2;
+        %tmp.13 = div %tmp.11 %tmp.12;
+        lputv %cx.3 %tmp.13;
+        symbol [ cx %cx.3 126 12 14 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 127 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %cy.4 = local;
+        symbol [ cy %cy.4 127 12 14 ];
+        %tmp.14 = lgetv %h.2;
+        symbol [ h %tmp.14 127 17 18 ];
+        %tmp.15 = 2;
+        %tmp.16 = div %tmp.14 %tmp.15;
+        %tmp.17 = 8;
+        %tmp.18 = add %tmp.16 %tmp.17;
+        lputv %cy.4 %tmp.18;
+        symbol [ cy %cy.4 127 12 14 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 129 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %pulse.5 = local;
+        symbol [ pulse %pulse.5 129 12 17 ];
+        symbol [ _animTick %tmp.20 129 20 29 ];
+        %tmp.20 = getv ? :_animTick;
+        %tmp.21 = 10;
+        %tmp.22 = mod %tmp.20 %tmp.21;
+        lputv %pulse.5 %tmp.22;
+        symbol [ pulse %pulse.5 129 12 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 131 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %orbOffset.6 = local;
+        symbol [ orbOffset %orbOffset.6 131 12 21 ];
+        %tmp.23 = 0;
+        lputv %orbOffset.6 %tmp.23;
+        symbol [ orbOffset %orbOffset.6 131 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 132 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_8_138_8_if_stmt:
+        symbol [ _showMessage %tmp.25 132 13 25 ];
+        %tmp.25 = getv ? :_showMessage;
+        %tmp.26 = not %tmp.25;
+        bf %tmp.26 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_8_138_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_8_138_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_27_138_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 133 12 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_12_137_12_if_stmt:
+        %tmp.27 = lgetv %pulse.5;
+        symbol [ pulse %tmp.27 133 16 21 ];
+        %tmp.28 = 5;
+        %tmp.29 = lt %tmp.27 %tmp.28;
+        bf %tmp.29 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_12_137_12_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_12_137_12_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_27_135_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 134 16 ]
+        %tmp.30 = lgetv %pulse.5;
+        symbol [ pulse %tmp.30 134 28 33 ];
+        lputv %orbOffset.6 %tmp.30;
+        symbol [ orbOffset %orbOffset.6 134 16 25 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_27_135_12_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_12_137_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_12_137_12_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_135_19_137_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 136 16 ]
+        %tmp.31 = 10;
+        %tmp.32 = lgetv %pulse.5;
+        symbol [ pulse %tmp.32 136 33 38 ];
+        %tmp.33 = sub %tmp.31 %tmp.32;
+        lputv %orbOffset.6 %tmp.33;
+        symbol [ orbOffset %orbOffset.6 136 16 25 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_135_19_137_12_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_133_12_137_12_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_27_138_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_8_138_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_132_8_138_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 140 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %orbR.7 = local;
+        symbol [ orbR %orbR.7 140 12 16 ];
+        %tmp.34 = 96;
+        %tmp.35 = lgetv %orbOffset.6;
+        symbol [ orbOffset %tmp.35 140 24 33 ];
+        %tmp.36 = 2;
+        %tmp.37 = div %tmp.35 %tmp.36;
+        %tmp.38 = add %tmp.34 %tmp.37;
+        lputv %orbR.7 %tmp.38;
+        symbol [ orbR %orbR.7 140 12 16 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 141 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %innerR.8 = local;
+        symbol [ innerR %innerR.8 141 12 18 ];
+        %tmp.39 = 78;
+        lputv %innerR.8 %tmp.39;
+        symbol [ innerR %innerR.8 141 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 143 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %ringR.9 = local;
+        symbol [ ringR %ringR.9 143 12 17 ];
+        %tmp.40 = lgetv %orbR.7;
+        symbol [ orbR %tmp.40 143 20 24 ];
+        %tmp.41 = 8;
+        %tmp.42 = add %tmp.40 %tmp.41;
+        lputv %ringR.9 %tmp.42;
+        symbol [ ringR %ringR.9 143 12 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 144 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_8_146_8_if_stmt:
+        symbol [ _showMessage %tmp.44 144 12 24 ];
+        %tmp.44 = getv ? :_showMessage;
+        bf %tmp.44 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_8_146_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_8_146_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_26_146_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 145 12 ]
+        %tmp.45 = lgetv %orbR.7;
+        symbol [ orbR %tmp.45 145 20 24 ];
+        %tmp.46 = 8;
+        %tmp.47 = add %tmp.45 %tmp.46;
+        symbol [ _messageTick %tmp.49 145 32 44 ];
+        %tmp.49 = getv ? :_messageTick;
+        %tmp.50 = 4;
+        %tmp.51 = mod %tmp.49 %tmp.50;
+        %tmp.52 = add %tmp.47 %tmp.51;
+        lputv %ringR.9 %tmp.52;
+        symbol [ ringR %ringR.9 145 12 17 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_26_146_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_8_146_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_144_8_146_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 148 8 ]
+        %tmp.53 = lgetv %dc;
+        symbol [ dc %tmp.53 148 8 10 ];
+        symbol [ setColor %tmp.54 148 11 19 ];
+        %tmp.54 = getv function %tmp.53 :setColor;
+        symbol [ COLOR_BG %tmp.56 148 20 28 ];
+        %tmp.56 = getv ? :COLOR_BG;
+        symbol [ COLOR_BG %tmp.58 148 30 38 ];
+        %tmp.58 = getv ? :COLOR_BG;
+        invoke %tmp.53 %tmp.54(%tmp.56, %tmp.58);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 149 8 ]
+        %tmp.59 = lgetv %dc;
+        symbol [ dc %tmp.59 149 8 10 ];
+        symbol [ clear %tmp.60 149 11 16 ];
+        %tmp.60 = getv function %tmp.59 :clear;
+        invoke %tmp.59 %tmp.60();
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 152 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_8_156_8_if_stmt:
+        symbol [ _isPressed %tmp.62 152 12 22 ];
+        %tmp.62 = getv ? :_isPressed;
+        bf %tmp.62 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_8_156_8_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_8_156_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_24_154_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 153 12 ]
+        %tmp.63 = lgetv %dc;
+        symbol [ dc %tmp.63 153 12 14 ];
+        symbol [ setColor %tmp.64 153 15 23 ];
+        %tmp.64 = getv function %tmp.63 :setColor;
+        symbol [ COLOR_ORB_PRESSED %tmp.66 153 24 41 ];
+        %tmp.66 = getv ? :COLOR_ORB_PRESSED;
+        symbol [ COLOR_ORB_PRESSED %tmp.68 153 43 60 ];
+        %tmp.68 = getv ? :COLOR_ORB_PRESSED;
+        invoke %tmp.63 %tmp.64(%tmp.66, %tmp.68);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_24_154_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_8_156_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_8_156_8_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_154_15_156_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 155 12 ]
+        %tmp.69 = lgetv %dc;
+        symbol [ dc %tmp.69 155 12 14 ];
+        symbol [ setColor %tmp.70 155 15 23 ];
+        %tmp.70 = getv function %tmp.69 :setColor;
+        symbol [ COLOR_ORB %tmp.72 155 24 33 ];
+        %tmp.72 = getv ? :COLOR_ORB;
+        symbol [ COLOR_ORB %tmp.74 155 35 44 ];
+        %tmp.74 = getv ? :COLOR_ORB;
+        invoke %tmp.69 %tmp.70(%tmp.72, %tmp.74);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_154_15_156_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_152_8_156_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 157 8 ]
+        %tmp.75 = lgetv %dc;
+        symbol [ dc %tmp.75 157 8 10 ];
+        symbol [ fillCircle %tmp.76 157 11 21 ];
+        %tmp.76 = getv function %tmp.75 :fillCircle;
+        %tmp.77 = lgetv %cx.3;
+        symbol [ cx %tmp.77 157 22 24 ];
+        %tmp.78 = lgetv %cy.4;
+        symbol [ cy %tmp.78 157 26 28 ];
+        %tmp.79 = lgetv %orbR.7;
+        symbol [ orbR %tmp.79 157 30 34 ];
+        invoke %tmp.75 %tmp.76(%tmp.77, %tmp.78, %tmp.79);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 160 8 ]
+        %tmp.80 = lgetv %dc;
+        symbol [ dc %tmp.80 160 8 10 ];
+        symbol [ setColor %tmp.81 160 11 19 ];
+        %tmp.81 = getv function %tmp.80 :setColor;
+        symbol [ COLOR_INNER %tmp.83 160 20 31 ];
+        %tmp.83 = getv ? :COLOR_INNER;
+        symbol [ COLOR_INNER %tmp.85 160 33 44 ];
+        %tmp.85 = getv ? :COLOR_INNER;
+        invoke %tmp.80 %tmp.81(%tmp.83, %tmp.85);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 161 8 ]
+        %tmp.86 = lgetv %dc;
+        symbol [ dc %tmp.86 161 8 10 ];
+        symbol [ fillCircle %tmp.87 161 11 21 ];
+        %tmp.87 = getv function %tmp.86 :fillCircle;
+        %tmp.88 = lgetv %cx.3;
+        symbol [ cx %tmp.88 161 22 24 ];
+        %tmp.89 = lgetv %cy.4;
+        symbol [ cy %tmp.89 161 26 28 ];
+        %tmp.90 = lgetv %innerR.8;
+        symbol [ innerR %tmp.90 161 30 36 ];
+        invoke %tmp.86 %tmp.87(%tmp.88, %tmp.89, %tmp.90);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 164 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop" ]
+        %ringColor.10 = local;
+        symbol [ ringColor %ringColor.10 164 12 21 ];
+        symbol [ COLOR_ACCENT %tmp.92 164 24 36 ];
+        %tmp.92 = getv ? :COLOR_ACCENT;
+        lputv %ringColor.10 %tmp.92;
+        symbol [ ringColor %ringColor.10 164 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 165 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_8_167_8_if_stmt:
+        symbol [ _showMessage %tmp.94 165 12 24 ];
+        %tmp.94 = getv ? :_showMessage;
+        bf %tmp.94 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_8_167_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_8_167_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_26_167_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 166 12 ]
+        symbol [ _messageColor %tmp.96 166 24 37 ];
+        %tmp.96 = getv ? :_messageColor;
+        lputv %ringColor.10 %tmp.96;
+        symbol [ ringColor %ringColor.10 166 12 21 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_26_167_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_8_167_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_165_8_167_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 169 8 ]
+        %tmp.97 = lgetv %dc;
+        symbol [ dc %tmp.97 169 8 10 ];
+        symbol [ setColor %tmp.98 169 11 19 ];
+        %tmp.98 = getv function %tmp.97 :setColor;
+        %tmp.99 = lgetv %ringColor.10;
+        symbol [ ringColor %tmp.99 169 20 29 ];
+        %tmp.100 = lgetv %ringColor.10;
+        symbol [ ringColor %tmp.100 169 31 40 ];
+        invoke %tmp.97 %tmp.98(%tmp.99, %tmp.100);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 170 8 ]
+        %tmp.101 = lgetv %dc;
+        symbol [ dc %tmp.101 170 8 10 ];
+        symbol [ drawCircle %tmp.102 170 11 21 ];
+        %tmp.102 = getv function %tmp.101 :drawCircle;
+        %tmp.103 = lgetv %cx.3;
+        symbol [ cx %tmp.103 170 22 24 ];
+        %tmp.104 = lgetv %cy.4;
+        symbol [ cy %tmp.104 170 26 28 ];
+        %tmp.105 = lgetv %ringR.9;
+        symbol [ ringR %tmp.105 170 30 35 ];
+        invoke %tmp.101 %tmp.102(%tmp.103, %tmp.104, %tmp.105);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 172 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_8_176_8_if_stmt:
+        symbol [ _showMessage %tmp.107 172 12 24 ];
+        %tmp.107 = getv ? :_showMessage;
+        bf %tmp.107 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_8_176_8_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_8_176_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_26_174_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 173 12 ]
+        %tmp.108 = self;
+        symbol [ drawCenteredMessage %tmp.109 173 12 31 ];
+        %tmp.109 = getv function %tmp.108 :drawCenteredMessage;
+        %tmp.110 = lgetv %dc;
+        symbol [ dc %tmp.110 173 32 34 ];
+        %tmp.111 = lgetv %cx.3;
+        symbol [ cx %tmp.111 173 36 38 ];
+        %tmp.112 = lgetv %cy.4;
+        symbol [ cy %tmp.112 173 40 42 ];
+        symbol [ _message %tmp.114 173 44 52 ];
+        %tmp.114 = getv ? :_message;
+        invoke %tmp.108 %tmp.109(%tmp.110, %tmp.111, %tmp.112, %tmp.114);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_26_174_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_8_176_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_8_176_8_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_174_15_176_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 175 12 ]
+        %tmp.115 = self;
+        symbol [ drawButtonContent %tmp.116 175 12 29 ];
+        %tmp.116 = getv function %tmp.115 :drawButtonContent;
+        %tmp.117 = lgetv %dc;
+        symbol [ dc %tmp.117 175 30 32 ];
+        %tmp.118 = lgetv %cx.3;
+        symbol [ cx %tmp.118 175 34 36 ];
+        %tmp.119 = lgetv %cy.4;
+        symbol [ cy %tmp.119 175 38 40 ];
+        invoke %tmp.115 %tmp.116(%tmp.117, %tmp.118, %tmp.119);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_174_15_176_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_172_8_176_8_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_120_49_177_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 179; @symbol_functiondef = [drawButtonContent,179,13,30]; @symbol_param<0> = [dc,180,8,10]; @symbol_param<0>_type<0> = [Graphics,180,14,22]; @symbol_param<0>_type<1> = [Dc,180,23,25]; @symbol_param<1> = [cx,181,8,10]; @symbol_param<1>_type<0> = [Number,181,14,20]; @symbol_param<2> = [cy,182,8,10]; @symbol_param<2>_type<0> = [Number,182,14,20]; ]
+    function drawButtonContent(dc as Graphics.Dc, cx as Number, cy as Number) as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_183_14_201_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 184 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 184 8 10 ];
+        symbol [ setColor %tmp.2 184 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 184 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.4 184 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_WHITE;
+        symbol [ COLOR_INNER %tmp.6 184 42 53 ];
+        %tmp.6 = getv ? :COLOR_INNER;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 185 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 185 8 10 ];
+        symbol [ drawText %tmp.8 185 11 19 ];
+        %tmp.8 = getv function %tmp.7 :drawText;
+        %tmp.9 = lgetv %cx;
+        symbol [ cx %tmp.9 186 12 14 ];
+        %tmp.10 = lgetv %cy;
+        symbol [ cy %tmp.10 187 12 14 ];
+        %tmp.11 = 26;
+        %tmp.12 = sub %tmp.10 %tmp.11;
+        symbol [ Graphics %tmp.13 188 12 20 ];
+        %tmp.13 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.14 188 21 31 ];
+        %tmp.14 = getv %tmp.13 :FONT_XTINY;
+        %tmp.15 = "Ask";
+        symbol [ Graphics %tmp.16 190 12 20 ];
+        %tmp.16 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.17 190 21 40 ];
+        %tmp.17 = getv %tmp.16 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.7 %tmp.8(%tmp.9, %tmp.12, %tmp.14, %tmp.15, %tmp.17);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 193 8 ]
+        %tmp.18 = lgetv %dc;
+        symbol [ dc %tmp.18 193 8 10 ];
+        symbol [ setColor %tmp.19 193 11 19 ];
+        %tmp.19 = getv function %tmp.18 :setColor;
+        symbol [ Graphics %tmp.20 193 20 28 ];
+        %tmp.20 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.21 193 29 40 ];
+        %tmp.21 = getv %tmp.20 :COLOR_WHITE;
+        symbol [ COLOR_INNER %tmp.23 193 42 53 ];
+        %tmp.23 = getv ? :COLOR_INNER;
+        invoke %tmp.18 %tmp.19(%tmp.21, %tmp.23);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 194 8 ]
+        %tmp.24 = lgetv %dc;
+        symbol [ dc %tmp.24 194 8 10 ];
+        symbol [ drawText %tmp.25 194 11 19 ];
+        %tmp.25 = getv function %tmp.24 :drawText;
+        %tmp.26 = lgetv %cx;
+        symbol [ cx %tmp.26 195 12 14 ];
+        %tmp.27 = lgetv %cy;
+        symbol [ cy %tmp.27 196 12 14 ];
+        %tmp.28 = 2;
+        %tmp.29 = add %tmp.27 %tmp.28;
+        symbol [ Graphics %tmp.30 197 12 20 ];
+        %tmp.30 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.31 197 21 31 ];
+        %tmp.31 = getv %tmp.30 :FONT_XTINY;
+        %tmp.32 = "me!";
+        symbol [ Graphics %tmp.33 199 12 20 ];
+        %tmp.33 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.34 199 21 40 ];
+        %tmp.34 = getv %tmp.33 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.24 %tmp.25(%tmp.26, %tmp.29, %tmp.31, %tmp.32, %tmp.34);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_183_14_201_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 203; @symbol_functiondef = [drawCenteredMessage,203,13,32]; @symbol_param<0> = [dc,204,8,10]; @symbol_param<0>_type<0> = [Graphics,204,14,22]; @symbol_param<0>_type<1> = [Dc,204,23,25]; @symbol_param<1> = [cx,205,8,10]; @symbol_param<1>_type<0> = [Number,205,14,20]; @symbol_param<2> = [cy,206,8,10]; @symbol_param<2>_type<0> = [Number,206,14,20]; @symbol_param<3> = [message,207,8,15]; @symbol_param<3>_type<0> = [String,207,19,25]; ]
+    function drawCenteredMessage(dc as Graphics.Dc, cx as Number, cy as Number, message as String) as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_208_14_259_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 209 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 209 8 10 ];
+        symbol [ setColor %tmp.2 209 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ _messageColor %tmp.4 209 20 33 ];
+        %tmp.4 = getv ? :_messageColor;
+        symbol [ COLOR_INNER %tmp.6 209 35 46 ];
+        %tmp.6 = getv ? :COLOR_INNER;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 211 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_208_14_259_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_208_14_259_4_stop" ]
+        %lines.1 = local;
+        symbol [ lines %lines.1 211 12 17 ];
+        %tmp.7 = self;
+        symbol [ splitMessage %tmp.8 211 20 32 ];
+        %tmp.8 = getv function %tmp.7 :splitMessage;
+        %tmp.9 = lgetv %message;
+        symbol [ message %tmp.9 211 33 40 ];
+        %tmp.10 = invoke %tmp.7 %tmp.8(%tmp.9);
+        lputv %lines.1 %tmp.10;
+        symbol [ lines %lines.1 211 12 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 213 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_8_258_8_if_stmt:
+        %tmp.11 = lgetv %lines.1;
+        symbol [ lines %tmp.11 213 12 17 ];
+        symbol [ size %tmp.12 213 18 22 ];
+        %tmp.12 = getv function %tmp.11 :size;
+        %tmp.13 = invoke %tmp.11 %tmp.12();
+        %tmp.14 = 1;
+        %tmp.15 = eq %tmp.13 %tmp.14;
+        bf %tmp.15 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_8_258_8_if_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_8_258_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_31_221_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 214 12 ]
+        %tmp.16 = lgetv %dc;
+        symbol [ dc %tmp.16 214 12 14 ];
+        symbol [ drawText %tmp.17 214 15 23 ];
+        %tmp.17 = getv function %tmp.16 :drawText;
+        %tmp.18 = lgetv %cx;
+        symbol [ cx %tmp.18 215 16 18 ];
+        %tmp.19 = lgetv %cy;
+        symbol [ cy %tmp.19 216 16 18 ];
+        %tmp.20 = 12;
+        %tmp.21 = sub %tmp.19 %tmp.20;
+        symbol [ Graphics %tmp.22 217 16 24 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.23 217 25 35 ];
+        %tmp.23 = getv %tmp.22 :FONT_XTINY;
+        %tmp.24 = lgetv %lines.1;
+        symbol [ lines %tmp.24 218 16 21 ];
+        %tmp.25 = 0;
+        %tmp.26 = agetv %tmp.24 %tmp.25;
+        symbol [ Graphics %tmp.27 219 16 24 ];
+        %tmp.27 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.28 219 25 44 ];
+        %tmp.28 = getv %tmp.27 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.16 %tmp.17(%tmp.18, %tmp.21, %tmp.23, %tmp.26, %tmp.28);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_31_221_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_8_258_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_8_258_8_if_false:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 221 15 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_15_258_8_if_stmt:
+        %tmp.29 = lgetv %lines.1;
+        symbol [ lines %tmp.29 221 19 24 ];
+        symbol [ size %tmp.30 221 25 29 ];
+        %tmp.30 = getv function %tmp.29 :size;
+        %tmp.31 = invoke %tmp.29 %tmp.30();
+        %tmp.32 = 2;
+        %tmp.33 = eq %tmp.31 %tmp.32;
+        bf %tmp.33 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_15_258_8_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_15_258_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_38_236_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 222 12 ]
+        %tmp.34 = lgetv %dc;
+        symbol [ dc %tmp.34 222 12 14 ];
+        symbol [ drawText %tmp.35 222 15 23 ];
+        %tmp.35 = getv function %tmp.34 :drawText;
+        %tmp.36 = lgetv %cx;
+        symbol [ cx %tmp.36 223 16 18 ];
+        %tmp.37 = lgetv %cy;
+        symbol [ cy %tmp.37 224 16 18 ];
+        %tmp.38 = 26;
+        %tmp.39 = sub %tmp.37 %tmp.38;
+        symbol [ Graphics %tmp.40 225 16 24 ];
+        %tmp.40 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.41 225 25 35 ];
+        %tmp.41 = getv %tmp.40 :FONT_XTINY;
+        %tmp.42 = lgetv %lines.1;
+        symbol [ lines %tmp.42 226 16 21 ];
+        %tmp.43 = 0;
+        %tmp.44 = agetv %tmp.42 %tmp.43;
+        symbol [ Graphics %tmp.45 227 16 24 ];
+        %tmp.45 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.46 227 25 44 ];
+        %tmp.46 = getv %tmp.45 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.34 %tmp.35(%tmp.36, %tmp.39, %tmp.41, %tmp.44, %tmp.46);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 229 12 ]
+        %tmp.47 = lgetv %dc;
+        symbol [ dc %tmp.47 229 12 14 ];
+        symbol [ drawText %tmp.48 229 15 23 ];
+        %tmp.48 = getv function %tmp.47 :drawText;
+        %tmp.49 = lgetv %cx;
+        symbol [ cx %tmp.49 230 16 18 ];
+        %tmp.50 = lgetv %cy;
+        symbol [ cy %tmp.50 231 16 18 ];
+        %tmp.51 = 2;
+        %tmp.52 = add %tmp.50 %tmp.51;
+        symbol [ Graphics %tmp.53 232 16 24 ];
+        %tmp.53 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.54 232 25 35 ];
+        %tmp.54 = getv %tmp.53 :FONT_XTINY;
+        %tmp.55 = lgetv %lines.1;
+        symbol [ lines %tmp.55 233 16 21 ];
+        %tmp.56 = 1;
+        %tmp.57 = agetv %tmp.55 %tmp.56;
+        symbol [ Graphics %tmp.58 234 16 24 ];
+        %tmp.58 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.59 234 25 44 ];
+        %tmp.59 = getv %tmp.58 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.47 %tmp.48(%tmp.49, %tmp.52, %tmp.54, %tmp.57, %tmp.59);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_38_236_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_15_258_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_15_258_8_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_236_15_258_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 237 12 ]
+        %tmp.60 = lgetv %dc;
+        symbol [ dc %tmp.60 237 12 14 ];
+        symbol [ drawText %tmp.61 237 15 23 ];
+        %tmp.61 = getv function %tmp.60 :drawText;
+        %tmp.62 = lgetv %cx;
+        symbol [ cx %tmp.62 238 16 18 ];
+        %tmp.63 = lgetv %cy;
+        symbol [ cy %tmp.63 239 16 18 ];
+        %tmp.64 = 38;
+        %tmp.65 = sub %tmp.63 %tmp.64;
+        symbol [ Graphics %tmp.66 240 16 24 ];
+        %tmp.66 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.67 240 25 35 ];
+        %tmp.67 = getv %tmp.66 :FONT_XTINY;
+        %tmp.68 = lgetv %lines.1;
+        symbol [ lines %tmp.68 241 16 21 ];
+        %tmp.69 = 0;
+        %tmp.70 = agetv %tmp.68 %tmp.69;
+        symbol [ Graphics %tmp.71 242 16 24 ];
+        %tmp.71 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.72 242 25 44 ];
+        %tmp.72 = getv %tmp.71 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.60 %tmp.61(%tmp.62, %tmp.65, %tmp.67, %tmp.70, %tmp.72);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 244 12 ]
+        %tmp.73 = lgetv %dc;
+        symbol [ dc %tmp.73 244 12 14 ];
+        symbol [ drawText %tmp.74 244 15 23 ];
+        %tmp.74 = getv function %tmp.73 :drawText;
+        %tmp.75 = lgetv %cx;
+        symbol [ cx %tmp.75 245 16 18 ];
+        %tmp.76 = lgetv %cy;
+        symbol [ cy %tmp.76 246 16 18 ];
+        %tmp.77 = 12;
+        %tmp.78 = sub %tmp.76 %tmp.77;
+        symbol [ Graphics %tmp.79 247 16 24 ];
+        %tmp.79 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.80 247 25 35 ];
+        %tmp.80 = getv %tmp.79 :FONT_XTINY;
+        %tmp.81 = lgetv %lines.1;
+        symbol [ lines %tmp.81 248 16 21 ];
+        %tmp.82 = 1;
+        %tmp.83 = agetv %tmp.81 %tmp.82;
+        symbol [ Graphics %tmp.84 249 16 24 ];
+        %tmp.84 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.85 249 25 44 ];
+        %tmp.85 = getv %tmp.84 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.73 %tmp.74(%tmp.75, %tmp.78, %tmp.80, %tmp.83, %tmp.85);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 251 12 ]
+        %tmp.86 = lgetv %dc;
+        symbol [ dc %tmp.86 251 12 14 ];
+        symbol [ drawText %tmp.87 251 15 23 ];
+        %tmp.87 = getv function %tmp.86 :drawText;
+        %tmp.88 = lgetv %cx;
+        symbol [ cx %tmp.88 252 16 18 ];
+        %tmp.89 = lgetv %cy;
+        symbol [ cy %tmp.89 253 16 18 ];
+        %tmp.90 = 14;
+        %tmp.91 = add %tmp.89 %tmp.90;
+        symbol [ Graphics %tmp.92 254 16 24 ];
+        %tmp.92 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.93 254 25 35 ];
+        %tmp.93 = getv %tmp.92 :FONT_XTINY;
+        %tmp.94 = lgetv %lines.1;
+        symbol [ lines %tmp.94 255 16 21 ];
+        %tmp.95 = 2;
+        %tmp.96 = agetv %tmp.94 %tmp.95;
+        symbol [ Graphics %tmp.97 256 16 24 ];
+        %tmp.97 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.98 256 25 44 ];
+        %tmp.98 = getv %tmp.97 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.86 %tmp.87(%tmp.88, %tmp.91, %tmp.93, %tmp.96, %tmp.98);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_236_15_258_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_221_15_258_8_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_213_8_258_8_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_208_14_259_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 261; @symbol_functiondef = [splitMessage,261,13,25]; @symbol_param<0> = [message,261,26,33]; @symbol_param<0>_type<0> = [String,261,37,43]; @symbol_return<0> = [Array,261,48,53]; @symbol_return<1> = [String,261,54,60]; ]
+    function splitMessage(message as String) as Array<String> {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 262 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_stop" ]
+        %text.1 = local;
+        symbol [ text %text.1 262 12 16 ];
+        %tmp.1 = self;
+        symbol [ trimSpaces %tmp.2 262 19 29 ];
+        %tmp.2 = getv function %tmp.1 :trimSpaces;
+        %tmp.3 = lgetv %message;
+        symbol [ message %tmp.3 262 30 37 ];
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        lputv %text.1 %tmp.4;
+        symbol [ text %text.1 262 12 16 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 263 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_stop" ]
+        %spaces.2 = local;
+        symbol [ spaces %spaces.2 263 12 18 ];
+        %tmp.5 = self;
+        symbol [ getSpacePositions %tmp.6 263 21 38 ];
+        %tmp.6 = getv function %tmp.5 :getSpacePositions;
+        %tmp.7 = lgetv %text.1;
+        symbol [ text %tmp.7 263 39 43 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        lputv %spaces.2 %tmp.8;
+        symbol [ spaces %spaces.2 263 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 264 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_stop" ]
+        %spaceCount.3 = local;
+        symbol [ spaceCount %spaceCount.3 264 12 22 ];
+        %tmp.9 = lgetv %spaces.2;
+        symbol [ spaces %tmp.9 264 25 31 ];
+        symbol [ size %tmp.10 264 32 36 ];
+        %tmp.10 = getv function %tmp.9 :size;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %spaceCount.3 %tmp.11;
+        symbol [ spaceCount %spaceCount.3 264 12 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 266 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_8_268_8_if_stmt:
+        %tmp.12 = lgetv %spaceCount.3;
+        symbol [ spaceCount %tmp.12 266 12 22 ];
+        %tmp.13 = 0;
+        %tmp.14 = eq %tmp.12 %tmp.13;
+        bf %tmp.14 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_8_268_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_8_268_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_29_268_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 267 12 ]
+        %tmp.15 = newa 1;
+        %tmp.16 = lgetv %text.1;
+        symbol [ text %tmp.16 267 20 24 ];
+        %tmp.17 = dup %tmp.15;
+        %tmp.18 = aputv %tmp.17 0 %tmp.16;
+        ret %tmp.18;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_29_268_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_8_268_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_266_8_268_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 270 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_8_273_8_if_stmt:
+        %tmp.19 = lgetv %spaceCount.3;
+        symbol [ spaceCount %tmp.19 270 12 22 ];
+        %tmp.20 = 1;
+        %tmp.21 = eq %tmp.19 %tmp.20;
+        bf %tmp.21 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_8_273_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_8_273_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_29_273_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 271 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_29_273_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_29_273_8_stop" ]
+        %p.4 = local;
+        symbol [ p %p.4 271 16 17 ];
+        %tmp.22 = lgetv %spaces.2;
+        symbol [ spaces %tmp.22 271 20 26 ];
+        %tmp.23 = 0;
+        %tmp.24 = agetv %tmp.22 %tmp.23;
+        lputv %p.4 %tmp.24;
+        symbol [ p %p.4 271 16 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 272 12 ]
+        %tmp.25 = newa 2;
+        %tmp.26 = lgetv %text.1;
+        symbol [ text %tmp.26 272 20 24 ];
+        symbol [ substring %tmp.27 272 25 34 ];
+        %tmp.27 = getv function %tmp.26 :substring;
+        %tmp.28 = 0;
+        %tmp.29 = lgetv %p.4;
+        symbol [ p %tmp.29 272 38 39 ];
+        %tmp.30 = invoke %tmp.26 %tmp.27(%tmp.28, %tmp.29);
+        %tmp.31 = dup %tmp.25;
+        %tmp.32 = aputv %tmp.31 0 %tmp.30;
+        %tmp.33 = lgetv %text.1;
+        symbol [ text %tmp.33 272 42 46 ];
+        symbol [ substring %tmp.34 272 47 56 ];
+        %tmp.34 = getv function %tmp.33 :substring;
+        %tmp.35 = lgetv %p.4;
+        symbol [ p %tmp.35 272 57 58 ];
+        %tmp.36 = 1;
+        %tmp.37 = add %tmp.35 %tmp.36;
+        %tmp.38 = lgetv %text.1;
+        symbol [ text %tmp.38 272 64 68 ];
+        symbol [ length %tmp.39 272 69 75 ];
+        %tmp.39 = getv function %tmp.38 :length;
+        %tmp.40 = invoke %tmp.38 %tmp.39();
+        %tmp.41 = invoke %tmp.33 %tmp.34(%tmp.37, %tmp.40);
+        %tmp.42 = dup %tmp.32;
+        %tmp.43 = aputv %tmp.42 1 %tmp.41;
+        ret %tmp.43;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_29_273_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_8_273_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_270_8_273_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 275 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_8_293_8_if_stmt:
+        %tmp.44 = lgetv %spaceCount.3;
+        symbol [ spaceCount %tmp.44 275 12 22 ];
+        %tmp.45 = 2;
+        %tmp.46 = eq %tmp.44 %tmp.45;
+        bf %tmp.46 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_8_293_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_8_293_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 276 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %p1.5 = local;
+        symbol [ p1 %p1.5 276 16 18 ];
+        %tmp.47 = lgetv %spaces.2;
+        symbol [ spaces %tmp.47 276 21 27 ];
+        %tmp.48 = 0;
+        %tmp.49 = agetv %tmp.47 %tmp.48;
+        lputv %p1.5 %tmp.49;
+        symbol [ p1 %p1.5 276 16 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 277 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %p2.6 = local;
+        symbol [ p2 %p2.6 277 16 18 ];
+        %tmp.50 = lgetv %spaces.2;
+        symbol [ spaces %tmp.50 277 21 27 ];
+        %tmp.51 = 1;
+        %tmp.52 = agetv %tmp.50 %tmp.51;
+        lputv %p2.6 %tmp.52;
+        symbol [ p2 %p2.6 277 16 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 279 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %line1a.7 = local;
+        symbol [ line1a %line1a.7 279 16 22 ];
+        %tmp.53 = lgetv %text.1;
+        symbol [ text %tmp.53 279 25 29 ];
+        symbol [ substring %tmp.54 279 30 39 ];
+        %tmp.54 = getv function %tmp.53 :substring;
+        %tmp.55 = 0;
+        %tmp.56 = lgetv %p1.5;
+        symbol [ p1 %tmp.56 279 43 45 ];
+        %tmp.57 = invoke %tmp.53 %tmp.54(%tmp.55, %tmp.56);
+        lputv %line1a.7 %tmp.57;
+        symbol [ line1a %line1a.7 279 16 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 280 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %line2a.8 = local;
+        symbol [ line2a %line2a.8 280 16 22 ];
+        %tmp.58 = lgetv %text.1;
+        symbol [ text %tmp.58 280 25 29 ];
+        symbol [ substring %tmp.59 280 30 39 ];
+        %tmp.59 = getv function %tmp.58 :substring;
+        %tmp.60 = lgetv %p1.5;
+        symbol [ p1 %tmp.60 280 40 42 ];
+        %tmp.61 = 1;
+        %tmp.62 = add %tmp.60 %tmp.61;
+        %tmp.63 = lgetv %text.1;
+        symbol [ text %tmp.63 280 48 52 ];
+        symbol [ length %tmp.64 280 53 59 ];
+        %tmp.64 = getv function %tmp.63 :length;
+        %tmp.65 = invoke %tmp.63 %tmp.64();
+        %tmp.66 = invoke %tmp.58 %tmp.59(%tmp.62, %tmp.65);
+        lputv %line2a.8 %tmp.66;
+        symbol [ line2a %line2a.8 280 16 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 282 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %line1b.9 = local;
+        symbol [ line1b %line1b.9 282 16 22 ];
+        %tmp.67 = lgetv %text.1;
+        symbol [ text %tmp.67 282 25 29 ];
+        symbol [ substring %tmp.68 282 30 39 ];
+        %tmp.68 = getv function %tmp.67 :substring;
+        %tmp.69 = 0;
+        %tmp.70 = lgetv %p2.6;
+        symbol [ p2 %tmp.70 282 43 45 ];
+        %tmp.71 = invoke %tmp.67 %tmp.68(%tmp.69, %tmp.70);
+        lputv %line1b.9 %tmp.71;
+        symbol [ line1b %line1b.9 282 16 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 283 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %line2b.10 = local;
+        symbol [ line2b %line2b.10 283 16 22 ];
+        %tmp.72 = lgetv %text.1;
+        symbol [ text %tmp.72 283 25 29 ];
+        symbol [ substring %tmp.73 283 30 39 ];
+        %tmp.73 = getv function %tmp.72 :substring;
+        %tmp.74 = lgetv %p2.6;
+        symbol [ p2 %tmp.74 283 40 42 ];
+        %tmp.75 = 1;
+        %tmp.76 = add %tmp.74 %tmp.75;
+        %tmp.77 = lgetv %text.1;
+        symbol [ text %tmp.77 283 48 52 ];
+        symbol [ length %tmp.78 283 53 59 ];
+        %tmp.78 = getv function %tmp.77 :length;
+        %tmp.79 = invoke %tmp.77 %tmp.78();
+        %tmp.80 = invoke %tmp.72 %tmp.73(%tmp.76, %tmp.79);
+        lputv %line2b.10 %tmp.80;
+        symbol [ line2b %line2b.10 283 16 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 285 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %diffA.11 = local;
+        symbol [ diffA %diffA.11 285 16 21 ];
+        %tmp.81 = self;
+        symbol [ absValue %tmp.82 285 24 32 ];
+        %tmp.82 = getv function %tmp.81 :absValue;
+        %tmp.83 = lgetv %line1a.7;
+        symbol [ line1a %tmp.83 285 33 39 ];
+        symbol [ length %tmp.84 285 40 46 ];
+        %tmp.84 = getv function %tmp.83 :length;
+        %tmp.85 = invoke %tmp.83 %tmp.84();
+        %tmp.86 = lgetv %line2a.8;
+        symbol [ line2a %tmp.86 285 51 57 ];
+        symbol [ length %tmp.87 285 58 64 ];
+        %tmp.87 = getv function %tmp.86 :length;
+        %tmp.88 = invoke %tmp.86 %tmp.87();
+        %tmp.89 = sub %tmp.85 %tmp.88;
+        %tmp.90 = invoke %tmp.81 %tmp.82(%tmp.89);
+        lputv %diffA.11 %tmp.90;
+        symbol [ diffA %diffA.11 285 16 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 286 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop" ]
+        %diffB.12 = local;
+        symbol [ diffB %diffB.12 286 16 21 ];
+        %tmp.91 = self;
+        symbol [ absValue %tmp.92 286 24 32 ];
+        %tmp.92 = getv function %tmp.91 :absValue;
+        %tmp.93 = lgetv %line1b.9;
+        symbol [ line1b %tmp.93 286 33 39 ];
+        symbol [ length %tmp.94 286 40 46 ];
+        %tmp.94 = getv function %tmp.93 :length;
+        %tmp.95 = invoke %tmp.93 %tmp.94();
+        %tmp.96 = lgetv %line2b.10;
+        symbol [ line2b %tmp.96 286 51 57 ];
+        symbol [ length %tmp.97 286 58 64 ];
+        %tmp.97 = getv function %tmp.96 :length;
+        %tmp.98 = invoke %tmp.96 %tmp.97();
+        %tmp.99 = sub %tmp.95 %tmp.98;
+        %tmp.100 = invoke %tmp.91 %tmp.92(%tmp.99);
+        lputv %diffB.12 %tmp.100;
+        symbol [ diffB %diffB.12 286 16 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 288 12 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_12_292_12_if_stmt:
+        %tmp.101 = lgetv %diffA.11;
+        symbol [ diffA %tmp.101 288 16 21 ];
+        %tmp.102 = lgetv %diffB.12;
+        symbol [ diffB %tmp.102 288 25 30 ];
+        %tmp.103 = lte %tmp.101 %tmp.102;
+        bf %tmp.103 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_12_292_12_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_12_292_12_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_32_290_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 289 16 ]
+        %tmp.104 = newa 2;
+        %tmp.105 = lgetv %line1a.7;
+        symbol [ line1a %tmp.105 289 24 30 ];
+        %tmp.106 = dup %tmp.104;
+        %tmp.107 = aputv %tmp.106 0 %tmp.105;
+        %tmp.108 = lgetv %line2a.8;
+        symbol [ line2a %tmp.108 289 32 38 ];
+        %tmp.109 = dup %tmp.107;
+        %tmp.110 = aputv %tmp.109 1 %tmp.108;
+        ret %tmp.110;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_32_290_12_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_12_292_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_12_292_12_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_290_19_292_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 291 16 ]
+        %tmp.111 = newa 2;
+        %tmp.112 = lgetv %line1b.9;
+        symbol [ line1b %tmp.112 291 24 30 ];
+        %tmp.113 = dup %tmp.111;
+        %tmp.114 = aputv %tmp.113 0 %tmp.112;
+        %tmp.115 = lgetv %line2b.10;
+        symbol [ line2b %tmp.115 291 32 38 ];
+        %tmp.116 = dup %tmp.114;
+        %tmp.117 = aputv %tmp.116 1 %tmp.115;
+        ret %tmp.117;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_290_19_292_12_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_288_12_292_12_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_29_293_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_8_293_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_275_8_293_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 296 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_stop" ]
+        %bestLines.13 = local;
+        symbol [ bestLines %bestLines.13 296 12 21 ];
+        %tmp.118 = null;
+        lputv %bestLines.13 %tmp.118;
+        symbol [ bestLines %bestLines.13 296 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 297 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_stop" ]
+        %bestScore.14 = local;
+        symbol [ bestScore %bestScore.14 297 12 21 ];
+        %tmp.119 = 9999;
+        lputv %bestScore.14 %tmp.119;
+        symbol [ bestScore %bestScore.14 297 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 299 8 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_end" ]
+        %i.15 = local;
+        symbol [ i %i.15 299 17 18 ];
+        %tmp.120 = 0;
+        lputv %i.15 %tmp.120;
+        symbol [ i %i.15 299 17 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_test:
+        %tmp.121 = lgetv %i.15;
+        symbol [ i %tmp.121 299 24 25 ];
+        %tmp.122 = lgetv %spaceCount.3;
+        symbol [ spaceCount %tmp.122 299 28 38 ];
+        %tmp.123 = 1;
+        %tmp.124 = sub %tmp.122 %tmp.123;
+        %tmp.125 = lt %tmp.121 %tmp.124;
+        bf %tmp.125 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_52_333_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 300 12 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_end" ]
+        %j.16 = local;
+        symbol [ j %j.16 300 21 22 ];
+        %tmp.126 = lgetv %i.15;
+        symbol [ i %tmp.126 300 25 26 ];
+        %tmp.127 = 1;
+        %tmp.128 = add %tmp.126 %tmp.127;
+        lputv %j.16 %tmp.128;
+        symbol [ j %j.16 300 21 22 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_test:
+        %tmp.129 = lgetv %j.16;
+        symbol [ j %tmp.129 300 32 33 ];
+        %tmp.130 = lgetv %spaceCount.3;
+        symbol [ spaceCount %tmp.130 300 36 46 ];
+        %tmp.131 = lt %tmp.129 %tmp.130;
+        bf %tmp.131 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 301 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %s1.17 = local;
+        symbol [ s1 %s1.17 301 20 22 ];
+        %tmp.132 = lgetv %spaces.2;
+        symbol [ spaces %tmp.132 301 25 31 ];
+        %tmp.133 = lgetv %i.15;
+        symbol [ i %tmp.133 301 32 33 ];
+        %tmp.134 = agetv %tmp.132 %tmp.133;
+        lputv %s1.17 %tmp.134;
+        symbol [ s1 %s1.17 301 20 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 302 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %s2.18 = local;
+        symbol [ s2 %s2.18 302 20 22 ];
+        %tmp.135 = lgetv %spaces.2;
+        symbol [ spaces %tmp.135 302 25 31 ];
+        %tmp.136 = lgetv %j.16;
+        symbol [ j %tmp.136 302 32 33 ];
+        %tmp.137 = agetv %tmp.135 %tmp.136;
+        lputv %s2.18 %tmp.137;
+        symbol [ s2 %s2.18 302 20 22 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 304 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %line1.19 = local;
+        symbol [ line1 %line1.19 304 20 25 ];
+        %tmp.138 = self;
+        symbol [ trimSpaces %tmp.139 304 28 38 ];
+        %tmp.139 = getv function %tmp.138 :trimSpaces;
+        %tmp.140 = lgetv %text.1;
+        symbol [ text %tmp.140 304 39 43 ];
+        symbol [ substring %tmp.141 304 44 53 ];
+        %tmp.141 = getv function %tmp.140 :substring;
+        %tmp.142 = 0;
+        %tmp.143 = lgetv %s1.17;
+        symbol [ s1 %tmp.143 304 57 59 ];
+        %tmp.144 = invoke %tmp.140 %tmp.141(%tmp.142, %tmp.143);
+        %tmp.145 = invoke %tmp.138 %tmp.139(%tmp.144);
+        lputv %line1.19 %tmp.145;
+        symbol [ line1 %line1.19 304 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 305 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %line2.20 = local;
+        symbol [ line2 %line2.20 305 20 25 ];
+        %tmp.146 = self;
+        symbol [ trimSpaces %tmp.147 305 28 38 ];
+        %tmp.147 = getv function %tmp.146 :trimSpaces;
+        %tmp.148 = lgetv %text.1;
+        symbol [ text %tmp.148 305 39 43 ];
+        symbol [ substring %tmp.149 305 44 53 ];
+        %tmp.149 = getv function %tmp.148 :substring;
+        %tmp.150 = lgetv %s1.17;
+        symbol [ s1 %tmp.150 305 54 56 ];
+        %tmp.151 = 1;
+        %tmp.152 = add %tmp.150 %tmp.151;
+        %tmp.153 = lgetv %s2.18;
+        symbol [ s2 %tmp.153 305 62 64 ];
+        %tmp.154 = invoke %tmp.148 %tmp.149(%tmp.152, %tmp.153);
+        %tmp.155 = invoke %tmp.146 %tmp.147(%tmp.154);
+        lputv %line2.20 %tmp.155;
+        symbol [ line2 %line2.20 305 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 306 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %line3.21 = local;
+        symbol [ line3 %line3.21 306 20 25 ];
+        %tmp.156 = self;
+        symbol [ trimSpaces %tmp.157 306 28 38 ];
+        %tmp.157 = getv function %tmp.156 :trimSpaces;
+        %tmp.158 = lgetv %text.1;
+        symbol [ text %tmp.158 306 39 43 ];
+        symbol [ substring %tmp.159 306 44 53 ];
+        %tmp.159 = getv function %tmp.158 :substring;
+        %tmp.160 = lgetv %s2.18;
+        symbol [ s2 %tmp.160 306 54 56 ];
+        %tmp.161 = 1;
+        %tmp.162 = add %tmp.160 %tmp.161;
+        %tmp.163 = lgetv %text.1;
+        symbol [ text %tmp.163 306 62 66 ];
+        symbol [ length %tmp.164 306 67 73 ];
+        %tmp.164 = getv function %tmp.163 :length;
+        %tmp.165 = invoke %tmp.163 %tmp.164();
+        %tmp.166 = invoke %tmp.158 %tmp.159(%tmp.162, %tmp.165);
+        %tmp.167 = invoke %tmp.156 %tmp.157(%tmp.166);
+        lputv %line3.21 %tmp.167;
+        symbol [ line3 %line3.21 306 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 308 16 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_stmt:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_309_20_311_38_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_309_20_310_38_begin:
+        %tmp.168 = lgetv %line1.19;
+        symbol [ line1 %tmp.168 309 20 25 ];
+        symbol [ length %tmp.169 309 26 32 ];
+        %tmp.169 = getv function %tmp.168 :length;
+        %tmp.170 = invoke %tmp.168 %tmp.169();
+        %tmp.171 = 0;
+        %tmp.172 = eq %tmp.170 %tmp.171;
+        bt %tmp.172 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_true;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_310_20_310_38_false:
+        %tmp.173 = lgetv %line2.20;
+        symbol [ line2 %tmp.173 310 20 25 ];
+        symbol [ length %tmp.174 310 26 32 ];
+        %tmp.174 = getv function %tmp.173 :length;
+        %tmp.175 = invoke %tmp.173 %tmp.174();
+        %tmp.176 = 0;
+        %tmp.177 = eq %tmp.175 %tmp.176;
+        push %tmp.177;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_310_20_310_38_end:
+        %tmp.178 = phi [%tmp.172 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_309_20_310_38_begin] [%tmp.177 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_310_20_310_38_false] [%tmp.178 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_310_20_310_38_end];
+        bt %tmp.178 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_true;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_311_20_311_38_false:
+        %tmp.179 = lgetv %line3.21;
+        symbol [ line3 %tmp.179 311 20 25 ];
+        symbol [ length %tmp.180 311 26 32 ];
+        %tmp.180 = getv function %tmp.179 :length;
+        %tmp.181 = invoke %tmp.179 %tmp.180();
+        %tmp.182 = 0;
+        %tmp.183 = eq %tmp.181 %tmp.182;
+        push %tmp.183;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_311_20_311_38_end:
+        %tmp.184 = phi [%tmp.178 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_309_20_311_38_begin] [%tmp.183 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_311_20_311_38_false] [%tmp.184 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_311_20_311_38_end];
+        bf %tmp.184 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_312_18_314_16_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 313 20 ]
+        goto break @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_incr;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_312_18_314_16_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_308_16_314_16_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 316 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %maxLen.22 = local;
+        symbol [ maxLen %maxLen.22 316 20 26 ];
+        %tmp.185 = self;
+        symbol [ max3 %tmp.186 316 29 33 ];
+        %tmp.186 = getv function %tmp.185 :max3;
+        %tmp.187 = lgetv %line1.19;
+        symbol [ line1 %tmp.187 317 20 25 ];
+        symbol [ length %tmp.188 317 26 32 ];
+        %tmp.188 = getv function %tmp.187 :length;
+        %tmp.189 = invoke %tmp.187 %tmp.188();
+        %tmp.190 = lgetv %line2.20;
+        symbol [ line2 %tmp.190 318 20 25 ];
+        symbol [ length %tmp.191 318 26 32 ];
+        %tmp.191 = getv function %tmp.190 :length;
+        %tmp.192 = invoke %tmp.190 %tmp.191();
+        %tmp.193 = lgetv %line3.21;
+        symbol [ line3 %tmp.193 319 20 25 ];
+        symbol [ length %tmp.194 319 26 32 ];
+        %tmp.194 = getv function %tmp.193 :length;
+        %tmp.195 = invoke %tmp.193 %tmp.194();
+        %tmp.196 = invoke %tmp.185 %tmp.186(%tmp.189, %tmp.192, %tmp.195);
+        lputv %maxLen.22 %tmp.196;
+        symbol [ maxLen %maxLen.22 316 20 26 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 321 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %minLen.23 = local;
+        symbol [ minLen %minLen.23 321 20 26 ];
+        %tmp.197 = self;
+        symbol [ min3 %tmp.198 321 29 33 ];
+        %tmp.198 = getv function %tmp.197 :min3;
+        %tmp.199 = lgetv %line1.19;
+        symbol [ line1 %tmp.199 322 20 25 ];
+        symbol [ length %tmp.200 322 26 32 ];
+        %tmp.200 = getv function %tmp.199 :length;
+        %tmp.201 = invoke %tmp.199 %tmp.200();
+        %tmp.202 = lgetv %line2.20;
+        symbol [ line2 %tmp.202 323 20 25 ];
+        symbol [ length %tmp.203 323 26 32 ];
+        %tmp.203 = getv function %tmp.202 :length;
+        %tmp.204 = invoke %tmp.202 %tmp.203();
+        %tmp.205 = lgetv %line3.21;
+        symbol [ line3 %tmp.205 324 20 25 ];
+        symbol [ length %tmp.206 324 26 32 ];
+        %tmp.206 = getv function %tmp.205 :length;
+        %tmp.207 = invoke %tmp.205 %tmp.206();
+        %tmp.208 = invoke %tmp.197 %tmp.198(%tmp.201, %tmp.204, %tmp.207);
+        lputv %minLen.23 %tmp.208;
+        symbol [ minLen %minLen.23 321 20 26 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 326 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop" ]
+        %score.24 = local;
+        symbol [ score %score.24 326 20 25 ];
+        %tmp.209 = lgetv %maxLen.22;
+        symbol [ maxLen %tmp.209 326 28 34 ];
+        %tmp.210 = lgetv %minLen.23;
+        symbol [ minLen %tmp.210 326 37 43 ];
+        %tmp.211 = sub %tmp.209 %tmp.210;
+        lputv %score.24 %tmp.211;
+        symbol [ score %score.24 326 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 328 16 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_16_331_16_if_stmt:
+        %tmp.212 = lgetv %score.24;
+        symbol [ score %tmp.212 328 20 25 ];
+        %tmp.213 = lgetv %bestScore.14;
+        symbol [ bestScore %tmp.213 328 28 37 ];
+        %tmp.214 = lt %tmp.212 %tmp.213;
+        bf %tmp.214 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_16_331_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_16_331_16_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_39_331_16_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 329 20 ]
+        %tmp.215 = lgetv %score.24;
+        symbol [ score %tmp.215 329 32 37 ];
+        lputv %bestScore.14 %tmp.215;
+        symbol [ bestScore %bestScore.14 329 20 29 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 330 20 ]
+        %tmp.216 = newa 3;
+        %tmp.217 = lgetv %line1.19;
+        symbol [ line1 %tmp.217 330 33 38 ];
+        %tmp.218 = dup %tmp.216;
+        %tmp.219 = aputv %tmp.218 0 %tmp.217;
+        %tmp.220 = lgetv %line2.20;
+        symbol [ line2 %tmp.220 330 40 45 ];
+        %tmp.221 = dup %tmp.219;
+        %tmp.222 = aputv %tmp.221 1 %tmp.220;
+        %tmp.223 = lgetv %line3.21;
+        symbol [ line3 %tmp.223 330 47 52 ];
+        %tmp.224 = dup %tmp.222;
+        %tmp.225 = aputv %tmp.224 2 %tmp.223;
+        lputv %bestLines.13 %tmp.225;
+        symbol [ bestLines %bestLines.13 330 20 29 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_39_331_16_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_16_331_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_328_16_331_16_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_56_332_12_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 300 ]
+        %tmp.226 = lgetv %j.16;
+        symbol [ j %tmp.226 300 48 49 ];
+        %tmp.227 = 1;
+        %tmp.228 = add %tmp.226 %tmp.227;
+        lputv %j.16 %tmp.228;
+        symbol [ j %j.16 300 48 49 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_300_12_332_12_for_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_52_333_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 299 ]
+        %tmp.229 = lgetv %i.15;
+        symbol [ i %tmp.229 299 44 45 ];
+        %tmp.230 = 1;
+        %tmp.231 = add %tmp.229 %tmp.230;
+        lputv %i.15 %tmp.231;
+        symbol [ i %i.15 299 44 45 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_299_8_333_8_for_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 335 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_8_337_8_if_stmt:
+        %tmp.232 = lgetv %bestLines.13;
+        symbol [ bestLines %tmp.232 335 12 21 ];
+        %tmp.233 = null;
+        %tmp.234 = ne %tmp.232 %tmp.233;
+        bf %tmp.234 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_8_337_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_8_337_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_31_337_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 336 12 ]
+        %tmp.235 = lgetv %bestLines.13;
+        symbol [ bestLines %tmp.235 336 19 28 ];
+        %tmp.236 = as %tmp.235 { (!Null) };
+        ret %tmp.236;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_31_337_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_8_337_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_335_8_337_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 339 8 ]
+        %tmp.237 = newa 1;
+        %tmp.238 = lgetv %text.1;
+        symbol [ text %tmp.238 339 16 20 ];
+        %tmp.239 = dup %tmp.237;
+        %tmp.240 = aputv %tmp.239 0 %tmp.238;
+        ret %tmp.240;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_261_62_340_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 342; @symbol_functiondef = [getSpacePositions,342,13,30]; @symbol_param<0> = [text,342,31,35]; @symbol_param<0>_type<0> = [String,342,39,45]; @symbol_return<0> = [Array,342,50,55]; @symbol_return<1> = [Number,342,56,62]; ]
+    function getSpacePositions(text as String) as Array<Number> {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_342_64_356_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 343 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_342_64_356_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_342_64_356_4_stop" ]
+        %result.1 = local;
+        symbol [ result %result.1 343 12 18 ];
+        %tmp.1 = newa 0 Array<Number>;
+        symbol [ Array %tmp.1 343 27 32 ];
+        symbol [ Number %tmp.1 343 33 39 ];
+        lputv %result.1 %tmp.1;
+        symbol [ result %result.1 343 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 344 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_342_64_356_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_342_64_356_4_stop" ]
+        %chars.2 = local;
+        symbol [ chars %chars.2 344 12 17 ];
+        %tmp.2 = lgetv %text;
+        symbol [ text %tmp.2 344 20 24 ];
+        symbol [ toCharArray %tmp.3 344 25 36 ];
+        %tmp.3 = getv function %tmp.2 :toCharArray;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %chars.2 %tmp.4;
+        symbol [ chars %chars.2 344 12 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 346 8 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_end" ]
+        %i.3 = local;
+        symbol [ i %i.3 346 17 18 ];
+        %tmp.5 = 0;
+        lputv %i.3 %tmp.5;
+        symbol [ i %i.3 346 17 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_test:
+        %tmp.6 = lgetv %i.3;
+        symbol [ i %tmp.6 346 24 25 ];
+        %tmp.7 = lgetv %chars.2;
+        symbol [ chars %tmp.7 346 28 33 ];
+        symbol [ size %tmp.8 346 34 38 ];
+        %tmp.8 = getv function %tmp.7 :size;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        %tmp.10 = lt %tmp.6 %tmp.9;
+        bf %tmp.10 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_50_353_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 347 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_50_353_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_50_353_8_stop" ]
+        %code.4 = local;
+        symbol [ code %code.4 347 16 20 ];
+        %tmp.11 = lgetv %chars.2;
+        symbol [ chars %tmp.11 347 23 28 ];
+        %tmp.12 = lgetv %i.3;
+        symbol [ i %tmp.12 347 29 30 ];
+        %tmp.13 = agetv %tmp.11 %tmp.12;
+        symbol [ toNumber %tmp.14 347 32 40 ];
+        %tmp.14 = getv function %tmp.13 :toNumber;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        lputv %code.4 %tmp.15;
+        symbol [ code %code.4 347 16 20 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 350 12 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_12_352_12_if_stmt:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_16_350_38_begin:
+        %tmp.16 = lgetv %code.4;
+        symbol [ code %tmp.16 350 16 20 ];
+        %tmp.17 = 32;
+        %tmp.18 = eq %tmp.16 %tmp.17;
+        bt %tmp.18 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_12_352_12_if_true;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_30_350_38_false:
+        %tmp.19 = lgetv %code.4;
+        symbol [ code %tmp.19 350 30 34 ];
+        %tmp.20 = 160;
+        %tmp.21 = eq %tmp.19 %tmp.20;
+        push %tmp.21;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_30_350_38_end:
+        %tmp.22 = phi [%tmp.18 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_16_350_38_begin] [%tmp.21 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_30_350_38_false] [%tmp.22 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_30_350_38_end];
+        bf %tmp.22 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_12_352_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_12_352_12_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_43_352_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 351 16 ]
+        %tmp.23 = lgetv %result.1;
+        symbol [ result %tmp.23 351 16 22 ];
+        symbol [ add %tmp.24 351 23 26 ];
+        %tmp.24 = getv function %tmp.23 :add;
+        %tmp.25 = lgetv %i.3;
+        symbol [ i %tmp.25 351 27 28 ];
+        invoke %tmp.23 %tmp.24(%tmp.25);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_43_352_12_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_12_352_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_350_12_352_12_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_50_353_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 346 ]
+        %tmp.26 = lgetv %i.3;
+        symbol [ i %tmp.26 346 42 43 ];
+        %tmp.27 = 1;
+        %tmp.28 = add %tmp.26 %tmp.27;
+        lputv %i.3 %tmp.28;
+        symbol [ i %i.3 346 42 43 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_346_8_353_8_for_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 355 8 ]
+        %tmp.29 = lgetv %result.1;
+        symbol [ result %tmp.29 355 15 21 ];
+        ret %tmp.29;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_342_64_356_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 358; @symbol_functiondef = [splitWords,358,13,23]; @symbol_param<0> = [text,358,24,28]; @symbol_param<0>_type<0> = [String,358,32,38]; @symbol_return<0> = [Array,358,43,48]; @symbol_return<1> = [String,358,49,55]; ]
+    function splitWords(text as String) as Array<String> {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 359 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_stop" ]
+        %trimmed.1 = local;
+        symbol [ trimmed %trimmed.1 359 12 19 ];
+        %tmp.1 = self;
+        symbol [ trimSpaces %tmp.2 359 22 32 ];
+        %tmp.2 = getv function %tmp.1 :trimSpaces;
+        %tmp.3 = lgetv %text;
+        symbol [ text %tmp.3 359 33 37 ];
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        lputv %trimmed.1 %tmp.4;
+        symbol [ trimmed %trimmed.1 359 12 19 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 360 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_stop" ]
+        %chars.2 = local;
+        symbol [ chars %chars.2 360 12 17 ];
+        %tmp.5 = lgetv %trimmed.1;
+        symbol [ trimmed %tmp.5 360 20 27 ];
+        symbol [ toCharArray %tmp.6 360 28 39 ];
+        %tmp.6 = getv function %tmp.5 :toCharArray;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %chars.2 %tmp.7;
+        symbol [ chars %chars.2 360 12 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 361 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_stop" ]
+        %result.3 = local;
+        symbol [ result %result.3 361 12 18 ];
+        %tmp.8 = newa 0 Array<String>;
+        symbol [ Array %tmp.8 361 27 32 ];
+        symbol [ String %tmp.8 361 33 39 ];
+        lputv %result.3 %tmp.8;
+        symbol [ result %result.3 361 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 362 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_stop" ]
+        %current.4 = local;
+        symbol [ current %current.4 362 12 19 ];
+        %tmp.9 = "";
+        lputv %current.4 %tmp.9;
+        symbol [ current %current.4 362 12 19 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 364 8 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_end" ]
+        %i.5 = local;
+        symbol [ i %i.5 364 17 18 ];
+        %tmp.10 = 0;
+        lputv %i.5 %tmp.10;
+        symbol [ i %i.5 364 17 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_test:
+        %tmp.11 = lgetv %i.5;
+        symbol [ i %tmp.11 364 24 25 ];
+        %tmp.12 = lgetv %chars.2;
+        symbol [ chars %tmp.12 364 28 33 ];
+        symbol [ size %tmp.13 364 34 38 ];
+        %tmp.13 = getv function %tmp.12 :size;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        %tmp.15 = lt %tmp.11 %tmp.14;
+        bf %tmp.15 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_50_375_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 365 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_50_375_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_50_375_8_stop" ]
+        %ch.6 = local;
+        symbol [ ch %ch.6 365 16 18 ];
+        %tmp.16 = lgetv %chars.2;
+        symbol [ chars %tmp.16 365 21 26 ];
+        %tmp.17 = lgetv %i.5;
+        symbol [ i %tmp.17 365 27 28 ];
+        %tmp.18 = agetv %tmp.16 %tmp.17;
+        symbol [ toString %tmp.19 365 30 38 ];
+        %tmp.19 = getv function %tmp.18 :toString;
+        %tmp.20 = invoke %tmp.18 %tmp.19();
+        lputv %ch.6 %tmp.20;
+        symbol [ ch %ch.6 365 16 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 367 12 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_12_374_12_if_stmt:
+        %tmp.21 = lgetv %ch.6;
+        symbol [ ch %tmp.21 367 16 18 ];
+        %tmp.22 = " ";
+        %tmp.23 = eq %tmp.21 %tmp.22;
+        bf %tmp.23 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_12_374_12_if_else_false;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_12_374_12_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_27_372_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 368 16 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_16_371_16_if_stmt:
+        %tmp.24 = lgetv %current.4;
+        symbol [ current %tmp.24 368 20 27 ];
+        symbol [ length %tmp.25 368 28 34 ];
+        %tmp.25 = getv function %tmp.24 :length;
+        %tmp.26 = invoke %tmp.24 %tmp.25();
+        %tmp.27 = 0;
+        %tmp.28 = gt %tmp.26 %tmp.27;
+        bf %tmp.28 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_16_371_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_16_371_16_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_42_371_16_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 369 20 ]
+        %tmp.29 = lgetv %result.3;
+        symbol [ result %tmp.29 369 20 26 ];
+        symbol [ add %tmp.30 369 27 30 ];
+        %tmp.30 = getv function %tmp.29 :add;
+        %tmp.31 = lgetv %current.4;
+        symbol [ current %tmp.31 369 31 38 ];
+        invoke %tmp.29 %tmp.30(%tmp.31);
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 370 20 ]
+        %tmp.32 = "";
+        lputv %current.4 %tmp.32;
+        symbol [ current %current.4 370 20 27 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_42_371_16_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_16_371_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_368_16_371_16_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_27_372_12_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_12_374_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_12_374_12_if_else_false:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_372_19_374_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 373 16 ]
+        %tmp.33 = lgetv %current.4;
+        symbol [ current %tmp.33 373 16 23 ];
+        %tmp.34 = lgetv %ch.6;
+        symbol [ ch %tmp.34 373 27 29 ];
+        %tmp.35 = add %tmp.33 %tmp.34;
+        lputv %current.4 %tmp.35;
+        symbol [ current %current.4 373 16 23 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_372_19_374_12_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_367_12_374_12_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_50_375_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 364 ]
+        %tmp.36 = lgetv %i.5;
+        symbol [ i %tmp.36 364 42 43 ];
+        %tmp.37 = 1;
+        %tmp.38 = add %tmp.36 %tmp.37;
+        lputv %i.5 %tmp.38;
+        symbol [ i %i.5 364 42 43 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_364_8_375_8_for_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 377 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_8_379_8_if_stmt:
+        %tmp.39 = lgetv %current.4;
+        symbol [ current %tmp.39 377 12 19 ];
+        symbol [ length %tmp.40 377 20 26 ];
+        %tmp.40 = getv function %tmp.39 :length;
+        %tmp.41 = invoke %tmp.39 %tmp.40();
+        %tmp.42 = 0;
+        %tmp.43 = gt %tmp.41 %tmp.42;
+        bf %tmp.43 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_8_379_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_8_379_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_34_379_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 378 12 ]
+        %tmp.44 = lgetv %result.3;
+        symbol [ result %tmp.44 378 12 18 ];
+        symbol [ add %tmp.45 378 19 22 ];
+        %tmp.45 = getv function %tmp.44 :add;
+        %tmp.46 = lgetv %current.4;
+        symbol [ current %tmp.46 378 23 30 ];
+        invoke %tmp.44 %tmp.45(%tmp.46);
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_34_379_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_8_379_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_377_8_379_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 381 8 ]
+        %tmp.47 = lgetv %result.3;
+        symbol [ result %tmp.47 381 15 21 ];
+        ret %tmp.47;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_358_57_382_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 384; @symbol_functiondef = [splitIntoTwoLines,384,13,30]; @symbol_param<0> = [words,384,31,36]; @symbol_param<0>_type<0> = [Array,384,40,45]; @symbol_param<0>_type<1> = [String,384,46,52]; @symbol_return<0> = [Array,384,58,63]; @symbol_return<1> = [String,384,64,70]; ]
+    function splitIntoTwoLines(words as Array<String>) as Array<String> {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_384_72_401_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 385 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_384_72_401_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_384_72_401_4_stop" ]
+        %bestLines.1 = local;
+        symbol [ bestLines %bestLines.1 385 12 21 ];
+        %tmp.1 = null;
+        lputv %bestLines.1 %tmp.1;
+        symbol [ bestLines %bestLines.1 385 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 386 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_384_72_401_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_384_72_401_4_stop" ]
+        %bestDiff.2 = local;
+        symbol [ bestDiff %bestDiff.2 386 12 20 ];
+        %tmp.2 = 9999;
+        lputv %bestDiff.2 %tmp.2;
+        symbol [ bestDiff %bestDiff.2 386 12 20 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 388 8 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_end" ]
+        %i.3 = local;
+        symbol [ i %i.3 388 17 18 ];
+        %tmp.3 = 1;
+        lputv %i.3 %tmp.3;
+        symbol [ i %i.3 388 17 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_test:
+        %tmp.4 = lgetv %i.3;
+        symbol [ i %tmp.4 388 24 25 ];
+        %tmp.5 = lgetv %words;
+        symbol [ words %tmp.5 388 28 33 ];
+        symbol [ size %tmp.6 388 34 38 ];
+        %tmp.6 = getv function %tmp.5 :size;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = lt %tmp.4 %tmp.7;
+        bf %tmp.8 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 389 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_stop" ]
+        %line1.4 = local;
+        symbol [ line1 %line1.4 389 16 21 ];
+        %tmp.9 = self;
+        symbol [ joinWords %tmp.10 389 24 33 ];
+        %tmp.10 = getv function %tmp.9 :joinWords;
+        %tmp.11 = lgetv %words;
+        symbol [ words %tmp.11 389 34 39 ];
+        %tmp.12 = 0;
+        %tmp.13 = lgetv %i.3;
+        symbol [ i %tmp.13 389 44 45 ];
+        %tmp.14 = invoke %tmp.9 %tmp.10(%tmp.11, %tmp.12, %tmp.13);
+        lputv %line1.4 %tmp.14;
+        symbol [ line1 %line1.4 389 16 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 390 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_stop" ]
+        %line2.5 = local;
+        symbol [ line2 %line2.5 390 16 21 ];
+        %tmp.15 = self;
+        symbol [ joinWords %tmp.16 390 24 33 ];
+        %tmp.16 = getv function %tmp.15 :joinWords;
+        %tmp.17 = lgetv %words;
+        symbol [ words %tmp.17 390 34 39 ];
+        %tmp.18 = lgetv %i.3;
+        symbol [ i %tmp.18 390 41 42 ];
+        %tmp.19 = lgetv %words;
+        symbol [ words %tmp.19 390 44 49 ];
+        symbol [ size %tmp.20 390 50 54 ];
+        %tmp.20 = getv function %tmp.19 :size;
+        %tmp.21 = invoke %tmp.19 %tmp.20();
+        %tmp.22 = invoke %tmp.15 %tmp.16(%tmp.17, %tmp.18, %tmp.21);
+        lputv %line2.5 %tmp.22;
+        symbol [ line2 %line2.5 390 16 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 392 12 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_stop" ]
+        %diff.6 = local;
+        symbol [ diff %diff.6 392 16 20 ];
+        %tmp.23 = self;
+        symbol [ absValue %tmp.24 392 23 31 ];
+        %tmp.24 = getv function %tmp.23 :absValue;
+        %tmp.25 = lgetv %line1.4;
+        symbol [ line1 %tmp.25 392 32 37 ];
+        symbol [ length %tmp.26 392 38 44 ];
+        %tmp.26 = getv function %tmp.25 :length;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        %tmp.28 = lgetv %line2.5;
+        symbol [ line2 %tmp.28 392 49 54 ];
+        symbol [ length %tmp.29 392 55 61 ];
+        %tmp.29 = getv function %tmp.28 :length;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        %tmp.31 = sub %tmp.27 %tmp.30;
+        %tmp.32 = invoke %tmp.23 %tmp.24(%tmp.31);
+        lputv %diff.6 %tmp.32;
+        symbol [ diff %diff.6 392 16 20 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 394 12 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_12_397_12_if_stmt:
+        %tmp.33 = lgetv %diff.6;
+        symbol [ diff %tmp.33 394 16 20 ];
+        %tmp.34 = lgetv %bestDiff.2;
+        symbol [ bestDiff %tmp.34 394 23 31 ];
+        %tmp.35 = lt %tmp.33 %tmp.34;
+        bf %tmp.35 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_12_397_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_12_397_12_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_33_397_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 395 16 ]
+        %tmp.36 = lgetv %diff.6;
+        symbol [ diff %tmp.36 395 27 31 ];
+        lputv %bestDiff.2 %tmp.36;
+        symbol [ bestDiff %bestDiff.2 395 16 24 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 396 16 ]
+        %tmp.37 = newa 2;
+        %tmp.38 = lgetv %line1.4;
+        symbol [ line1 %tmp.38 396 29 34 ];
+        %tmp.39 = dup %tmp.37;
+        %tmp.40 = aputv %tmp.39 0 %tmp.38;
+        %tmp.41 = lgetv %line2.5;
+        symbol [ line2 %tmp.41 396 36 41 ];
+        %tmp.42 = dup %tmp.40;
+        %tmp.43 = aputv %tmp.42 1 %tmp.41;
+        lputv %bestLines.1 %tmp.43;
+        symbol [ bestLines %bestLines.1 396 16 25 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_33_397_12_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_12_397_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_394_12_397_12_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_50_398_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 388 ]
+        %tmp.44 = lgetv %i.3;
+        symbol [ i %tmp.44 388 42 43 ];
+        %tmp.45 = 1;
+        %tmp.46 = add %tmp.44 %tmp.45;
+        lputv %i.3 %tmp.46;
+        symbol [ i %i.3 388 42 43 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_388_8_398_8_for_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 400 8 ]
+        %tmp.47 = lgetv %bestLines.1;
+        symbol [ bestLines %tmp.47 400 15 24 ];
+        ret %tmp.47;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_384_72_401_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 403; @symbol_functiondef = [splitIntoThreeLines,403,13,32]; @symbol_param<0> = [words,403,33,38]; @symbol_param<0>_type<0> = [Array,403,42,47]; @symbol_param<0>_type<1> = [String,403,48,54]; @symbol_return<0> = [Array,403,60,65]; @symbol_return<1> = [String,403,66,72]; ]
+    function splitIntoThreeLines(words as Array<String>) as Array<String> {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_403_74_434_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 404 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_403_74_434_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_403_74_434_4_stop" ]
+        %bestLines.1 = local;
+        symbol [ bestLines %bestLines.1 404 12 21 ];
+        %tmp.1 = null;
+        lputv %bestLines.1 %tmp.1;
+        symbol [ bestLines %bestLines.1 404 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 405 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_403_74_434_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_403_74_434_4_stop" ]
+        %bestScore.2 = local;
+        symbol [ bestScore %bestScore.2 405 12 21 ];
+        %tmp.2 = 9999;
+        lputv %bestScore.2 %tmp.2;
+        symbol [ bestScore %bestScore.2 405 12 21 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 407 8 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_end" ]
+        %i.3 = local;
+        symbol [ i %i.3 407 17 18 ];
+        %tmp.3 = 1;
+        lputv %i.3 %tmp.3;
+        symbol [ i %i.3 407 17 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_test:
+        %tmp.4 = lgetv %i.3;
+        symbol [ i %tmp.4 407 24 25 ];
+        %tmp.5 = lgetv %words;
+        symbol [ words %tmp.5 407 28 33 ];
+        symbol [ size %tmp.6 407 34 38 ];
+        %tmp.6 = getv function %tmp.5 :size;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = 1;
+        %tmp.9 = sub %tmp.7 %tmp.8;
+        %tmp.10 = lt %tmp.4 %tmp.9;
+        bf %tmp.10 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_54_431_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 408 12 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_end" ]
+        %j.4 = local;
+        symbol [ j %j.4 408 21 22 ];
+        %tmp.11 = lgetv %i.3;
+        symbol [ i %tmp.11 408 25 26 ];
+        %tmp.12 = 1;
+        %tmp.13 = add %tmp.11 %tmp.12;
+        lputv %j.4 %tmp.13;
+        symbol [ j %j.4 408 21 22 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_test:
+        %tmp.14 = lgetv %j.4;
+        symbol [ j %tmp.14 408 32 33 ];
+        %tmp.15 = lgetv %words;
+        symbol [ words %tmp.15 408 36 41 ];
+        symbol [ size %tmp.16 408 42 46 ];
+        %tmp.16 = getv function %tmp.15 :size;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        %tmp.18 = lt %tmp.14 %tmp.17;
+        bf %tmp.18 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 409 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop" ]
+        %line1.5 = local;
+        symbol [ line1 %line1.5 409 20 25 ];
+        %tmp.19 = self;
+        symbol [ joinWords %tmp.20 409 28 37 ];
+        %tmp.20 = getv function %tmp.19 :joinWords;
+        %tmp.21 = lgetv %words;
+        symbol [ words %tmp.21 409 38 43 ];
+        %tmp.22 = 0;
+        %tmp.23 = lgetv %i.3;
+        symbol [ i %tmp.23 409 48 49 ];
+        %tmp.24 = invoke %tmp.19 %tmp.20(%tmp.21, %tmp.22, %tmp.23);
+        lputv %line1.5 %tmp.24;
+        symbol [ line1 %line1.5 409 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 410 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop" ]
+        %line2.6 = local;
+        symbol [ line2 %line2.6 410 20 25 ];
+        %tmp.25 = self;
+        symbol [ joinWords %tmp.26 410 28 37 ];
+        %tmp.26 = getv function %tmp.25 :joinWords;
+        %tmp.27 = lgetv %words;
+        symbol [ words %tmp.27 410 38 43 ];
+        %tmp.28 = lgetv %i.3;
+        symbol [ i %tmp.28 410 45 46 ];
+        %tmp.29 = lgetv %j.4;
+        symbol [ j %tmp.29 410 48 49 ];
+        %tmp.30 = invoke %tmp.25 %tmp.26(%tmp.27, %tmp.28, %tmp.29);
+        lputv %line2.6 %tmp.30;
+        symbol [ line2 %line2.6 410 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 411 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop" ]
+        %line3.7 = local;
+        symbol [ line3 %line3.7 411 20 25 ];
+        %tmp.31 = self;
+        symbol [ joinWords %tmp.32 411 28 37 ];
+        %tmp.32 = getv function %tmp.31 :joinWords;
+        %tmp.33 = lgetv %words;
+        symbol [ words %tmp.33 411 38 43 ];
+        %tmp.34 = lgetv %j.4;
+        symbol [ j %tmp.34 411 45 46 ];
+        %tmp.35 = lgetv %words;
+        symbol [ words %tmp.35 411 48 53 ];
+        symbol [ size %tmp.36 411 54 58 ];
+        %tmp.36 = getv function %tmp.35 :size;
+        %tmp.37 = invoke %tmp.35 %tmp.36();
+        %tmp.38 = invoke %tmp.31 %tmp.32(%tmp.33, %tmp.34, %tmp.37);
+        lputv %line3.7 %tmp.38;
+        symbol [ line3 %line3.7 411 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 413 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop" ]
+        %maxLen.8 = local;
+        symbol [ maxLen %maxLen.8 413 20 26 ];
+        %tmp.39 = self;
+        symbol [ max3 %tmp.40 413 29 33 ];
+        %tmp.40 = getv function %tmp.39 :max3;
+        %tmp.41 = lgetv %line1.5;
+        symbol [ line1 %tmp.41 414 20 25 ];
+        symbol [ length %tmp.42 414 26 32 ];
+        %tmp.42 = getv function %tmp.41 :length;
+        %tmp.43 = invoke %tmp.41 %tmp.42();
+        %tmp.44 = lgetv %line2.6;
+        symbol [ line2 %tmp.44 415 20 25 ];
+        symbol [ length %tmp.45 415 26 32 ];
+        %tmp.45 = getv function %tmp.44 :length;
+        %tmp.46 = invoke %tmp.44 %tmp.45();
+        %tmp.47 = lgetv %line3.7;
+        symbol [ line3 %tmp.47 416 20 25 ];
+        symbol [ length %tmp.48 416 26 32 ];
+        %tmp.48 = getv function %tmp.47 :length;
+        %tmp.49 = invoke %tmp.47 %tmp.48();
+        %tmp.50 = invoke %tmp.39 %tmp.40(%tmp.43, %tmp.46, %tmp.49);
+        lputv %maxLen.8 %tmp.50;
+        symbol [ maxLen %maxLen.8 413 20 26 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 418 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop" ]
+        %minLen.9 = local;
+        symbol [ minLen %minLen.9 418 20 26 ];
+        %tmp.51 = self;
+        symbol [ min3 %tmp.52 418 29 33 ];
+        %tmp.52 = getv function %tmp.51 :min3;
+        %tmp.53 = lgetv %line1.5;
+        symbol [ line1 %tmp.53 419 20 25 ];
+        symbol [ length %tmp.54 419 26 32 ];
+        %tmp.54 = getv function %tmp.53 :length;
+        %tmp.55 = invoke %tmp.53 %tmp.54();
+        %tmp.56 = lgetv %line2.6;
+        symbol [ line2 %tmp.56 420 20 25 ];
+        symbol [ length %tmp.57 420 26 32 ];
+        %tmp.57 = getv function %tmp.56 :length;
+        %tmp.58 = invoke %tmp.56 %tmp.57();
+        %tmp.59 = lgetv %line3.7;
+        symbol [ line3 %tmp.59 421 20 25 ];
+        symbol [ length %tmp.60 421 26 32 ];
+        %tmp.60 = getv function %tmp.59 :length;
+        %tmp.61 = invoke %tmp.59 %tmp.60();
+        %tmp.62 = invoke %tmp.51 %tmp.52(%tmp.55, %tmp.58, %tmp.61);
+        lputv %minLen.9 %tmp.62;
+        symbol [ minLen %minLen.9 418 20 26 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 424 16 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop" ]
+        %score.10 = local;
+        symbol [ score %score.10 424 20 25 ];
+        %tmp.63 = lgetv %maxLen.8;
+        symbol [ maxLen %tmp.63 424 28 34 ];
+        %tmp.64 = lgetv %minLen.9;
+        symbol [ minLen %tmp.64 424 37 43 ];
+        %tmp.65 = sub %tmp.63 %tmp.64;
+        lputv %score.10 %tmp.65;
+        symbol [ score %score.10 424 20 25 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 426 16 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_16_429_16_if_stmt:
+        %tmp.66 = lgetv %score.10;
+        symbol [ score %tmp.66 426 20 25 ];
+        %tmp.67 = lgetv %bestScore.2;
+        symbol [ bestScore %tmp.67 426 28 37 ];
+        %tmp.68 = lt %tmp.66 %tmp.67;
+        bf %tmp.68 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_16_429_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_16_429_16_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_39_429_16_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 427 20 ]
+        %tmp.69 = lgetv %score.10;
+        symbol [ score %tmp.69 427 32 37 ];
+        lputv %bestScore.2 %tmp.69;
+        symbol [ bestScore %bestScore.2 427 20 29 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 428 20 ]
+        %tmp.70 = newa 3;
+        %tmp.71 = lgetv %line1.5;
+        symbol [ line1 %tmp.71 428 33 38 ];
+        %tmp.72 = dup %tmp.70;
+        %tmp.73 = aputv %tmp.72 0 %tmp.71;
+        %tmp.74 = lgetv %line2.6;
+        symbol [ line2 %tmp.74 428 40 45 ];
+        %tmp.75 = dup %tmp.73;
+        %tmp.76 = aputv %tmp.75 1 %tmp.74;
+        %tmp.77 = lgetv %line3.7;
+        symbol [ line3 %tmp.77 428 47 52 ];
+        %tmp.78 = dup %tmp.76;
+        %tmp.79 = aputv %tmp.78 2 %tmp.77;
+        lputv %bestLines.1 %tmp.79;
+        symbol [ bestLines %bestLines.1 428 20 29 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_39_429_16_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_16_429_16_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_426_16_429_16_if_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_58_430_12_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 408 ]
+        %tmp.80 = lgetv %j.4;
+        symbol [ j %tmp.80 408 50 51 ];
+        %tmp.81 = 1;
+        %tmp.82 = add %tmp.80 %tmp.81;
+        lputv %j.4 %tmp.82;
+        symbol [ j %j.4 408 50 51 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_408_12_430_12_for_end:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_54_431_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 407 ]
+        %tmp.83 = lgetv %i.3;
+        symbol [ i %tmp.83 407 46 47 ];
+        %tmp.84 = 1;
+        %tmp.85 = add %tmp.83 %tmp.84;
+        lputv %i.3 %tmp.85;
+        symbol [ i %i.3 407 46 47 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_407_8_431_8_for_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 433 8 ]
+        %tmp.86 = lgetv %bestLines.1;
+        symbol [ bestLines %tmp.86 433 15 24 ];
+        ret %tmp.86;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_403_74_434_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 436; @symbol_functiondef = [joinWords,436,13,22]; @symbol_param<0> = [words,437,8,13]; @symbol_param<0>_type<0> = [Array,437,17,22]; @symbol_param<0>_type<1> = [String,437,23,29]; @symbol_param<1> = [start,438,8,13]; @symbol_param<1>_type<0> = [Number,438,17,23]; @symbol_param<2> = [finish,439,8,14]; @symbol_param<2>_type<0> = [Number,439,18,24]; @symbol_return<0> = [String,440,9,15]; ]
+    function joinWords(words as Array<String>, start as Number, finish as Number) as String {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_440_16_451_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 441 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_440_16_451_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_440_16_451_4_stop" ]
+        %result.1 = local;
+        symbol [ result %result.1 441 12 18 ];
+        %tmp.1 = "";
+        lputv %result.1 %tmp.1;
+        symbol [ result %result.1 441 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 443 8 ]
+        for @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_incr @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_init:
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_begin" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 443 17 18 ];
+        %tmp.2 = lgetv %start;
+        symbol [ start %tmp.2 443 21 26 ];
+        lputv %i.2 %tmp.2;
+        symbol [ i %i.2 443 17 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_test:
+        %tmp.3 = lgetv %i.2;
+        symbol [ i %tmp.3 443 28 29 ];
+        %tmp.4 = lgetv %finish;
+        symbol [ finish %tmp.4 443 32 38 ];
+        %tmp.5 = lt %tmp.3 %tmp.4;
+        bf %tmp.5 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_48_448_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 444 12 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_12_446_12_if_stmt:
+        %tmp.6 = lgetv %result.1;
+        symbol [ result %tmp.6 444 16 22 ];
+        symbol [ length %tmp.7 444 23 29 ];
+        %tmp.7 = getv function %tmp.6 :length;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        %tmp.9 = 0;
+        %tmp.10 = gt %tmp.8 %tmp.9;
+        bf %tmp.10 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_12_446_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_12_446_12_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_37_446_12_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 445 16 ]
+        %tmp.11 = lgetv %result.1;
+        symbol [ result %tmp.11 445 16 22 ];
+        %tmp.12 = " ";
+        %tmp.13 = add %tmp.11 %tmp.12;
+        lputv %result.1 %tmp.13;
+        symbol [ result %result.1 445 16 22 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_37_446_12_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_12_446_12_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_444_12_446_12_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 447 12 ]
+        %tmp.14 = lgetv %result.1;
+        symbol [ result %tmp.14 447 12 18 ];
+        %tmp.15 = lgetv %words;
+        symbol [ words %tmp.15 447 22 27 ];
+        %tmp.16 = lgetv %i.2;
+        symbol [ i %tmp.16 447 28 29 ];
+        %tmp.17 = agetv %tmp.15 %tmp.16;
+        %tmp.18 = add %tmp.14 %tmp.17;
+        lputv %result.1 %tmp.18;
+        symbol [ result %result.1 447 12 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_48_448_8_stop:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_incr:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 443 ]
+        %tmp.19 = lgetv %i.2;
+        symbol [ i %tmp.19 443 40 41 ];
+        %tmp.20 = 1;
+        %tmp.21 = add %tmp.19 %tmp.20;
+        lputv %i.2 %tmp.21;
+        symbol [ i %i.2 443 40 41 ];
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_443_8_448_8_for_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 450 8 ]
+        %tmp.22 = lgetv %result.1;
+        symbol [ result %tmp.22 450 15 21 ];
+        ret %tmp.22;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_440_16_451_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 453; @symbol_functiondef = [trimSpaces,453,13,23]; @symbol_param<0> = [text,453,24,28]; @symbol_param<0>_type<0> = [String,453,32,38]; @symbol_return<0> = [String,453,43,49]; ]
+    function trimSpaces(text as String) as String {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_453_50_466_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 454 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_453_50_466_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_453_50_466_4_stop" ]
+        %start.1 = local;
+        symbol [ start %start.1 454 12 17 ];
+        %tmp.1 = 0;
+        lputv %start.1 %tmp.1;
+        symbol [ start %start.1 454 12 17 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 455 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_453_50_466_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_453_50_466_4_stop" ]
+        %finish.2 = local;
+        symbol [ finish %finish.2 455 12 18 ];
+        %tmp.2 = lgetv %text;
+        symbol [ text %tmp.2 455 21 25 ];
+        symbol [ length %tmp.3 455 26 32 ];
+        %tmp.3 = getv function %tmp.2 :length;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %finish.2 %tmp.4;
+        symbol [ finish %finish.2 455 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 457 8 ]
+        while @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_test:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_15_457_69_begin:
+        %tmp.5 = lgetv %start.1;
+        symbol [ start %tmp.5 457 15 20 ];
+        %tmp.6 = lgetv %finish.2;
+        symbol [ finish %tmp.6 457 23 29 ];
+        %tmp.7 = lt %tmp.5 %tmp.6;
+        %tmp.8 = dup %tmp.7;
+        bf %tmp.8 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_33_457_69_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_33_457_69_true:
+        %tmp.9 = lgetv %text;
+        symbol [ text %tmp.9 457 33 37 ];
+        symbol [ substring %tmp.10 457 38 47 ];
+        %tmp.10 = getv function %tmp.9 :substring;
+        %tmp.11 = lgetv %start.1;
+        symbol [ start %tmp.11 457 48 53 ];
+        %tmp.12 = lgetv %start.1;
+        symbol [ start %tmp.12 457 55 60 ];
+        %tmp.13 = 1;
+        %tmp.14 = add %tmp.12 %tmp.13;
+        %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.11, %tmp.14);
+        %tmp.16 = " ";
+        %tmp.17 = eq %tmp.15 %tmp.16;
+        %tmp.18 = and %tmp.7 %tmp.17;
+        push %tmp.18;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_33_457_69_end:
+        %tmp.19 = phi [%tmp.8 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_15_457_69_begin] [%tmp.18 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_33_457_69_true] [%tmp.19 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_33_457_69_end];
+        bf %tmp.19 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_74_459_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 458 12 ]
+        %tmp.20 = lgetv %start.1;
+        symbol [ start %tmp.20 458 12 17 ];
+        %tmp.21 = 1;
+        %tmp.22 = add %tmp.20 %tmp.21;
+        lputv %start.1 %tmp.22;
+        symbol [ start %start.1 458 12 17 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_74_459_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_457_8_459_8_while_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 461 8 ]
+        while @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_test @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_test:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_15_461_71_begin:
+        %tmp.23 = lgetv %finish.2;
+        symbol [ finish %tmp.23 461 15 21 ];
+        %tmp.24 = lgetv %start.1;
+        symbol [ start %tmp.24 461 24 29 ];
+        %tmp.25 = gt %tmp.23 %tmp.24;
+        %tmp.26 = dup %tmp.25;
+        bf %tmp.26 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_33_461_71_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_33_461_71_true:
+        %tmp.27 = lgetv %text;
+        symbol [ text %tmp.27 461 33 37 ];
+        symbol [ substring %tmp.28 461 38 47 ];
+        %tmp.28 = getv function %tmp.27 :substring;
+        %tmp.29 = lgetv %finish.2;
+        symbol [ finish %tmp.29 461 48 54 ];
+        %tmp.30 = 1;
+        %tmp.31 = sub %tmp.29 %tmp.30;
+        %tmp.32 = lgetv %finish.2;
+        symbol [ finish %tmp.32 461 60 66 ];
+        %tmp.33 = invoke %tmp.27 %tmp.28(%tmp.31, %tmp.32);
+        %tmp.34 = " ";
+        %tmp.35 = eq %tmp.33 %tmp.34;
+        %tmp.36 = and %tmp.25 %tmp.35;
+        push %tmp.36;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_33_461_71_end:
+        %tmp.37 = phi [%tmp.26 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_15_461_71_begin] [%tmp.36 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_33_461_71_true] [%tmp.37 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_33_461_71_end];
+        bf %tmp.37 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_begin:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_76_463_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 462 12 ]
+        %tmp.38 = lgetv %finish.2;
+        symbol [ finish %tmp.38 462 12 18 ];
+        %tmp.39 = 1;
+        %tmp.40 = sub %tmp.38 %tmp.39;
+        lputv %finish.2 %tmp.40;
+        symbol [ finish %finish.2 462 12 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_76_463_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_test;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_461_8_463_8_while_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 465 8 ]
+        %tmp.41 = lgetv %text;
+        symbol [ text %tmp.41 465 15 19 ];
+        symbol [ substring %tmp.42 465 20 29 ];
+        %tmp.42 = getv function %tmp.41 :substring;
+        %tmp.43 = lgetv %start.1;
+        symbol [ start %tmp.43 465 30 35 ];
+        %tmp.44 = lgetv %finish.2;
+        symbol [ finish %tmp.44 465 37 43 ];
+        %tmp.45 = invoke %tmp.41 %tmp.42(%tmp.43, %tmp.44);
+        ret %tmp.45;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_453_50_466_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 468; @symbol_functiondef = [absValue,468,13,21]; @symbol_param<0> = [value,468,22,27]; @symbol_param<0>_type<0> = [Number,468,31,37]; @symbol_return<0> = [Number,468,42,48]; ]
+    function absValue(value as Number) as Number {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_468_49_473_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 469 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_8_471_8_if_stmt:
+        %tmp.1 = lgetv %value;
+        symbol [ value %tmp.1 469 12 17 ];
+        %tmp.2 = 0;
+        %tmp.3 = lt %tmp.1 %tmp.2;
+        bf %tmp.3 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_8_471_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_8_471_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_23_471_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 470 12 ]
+        %tmp.4 = lgetv %value;
+        symbol [ value %tmp.4 470 20 25 ];
+        %tmp.5 = sub 0 %tmp.4;
+        ret %tmp.5;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_23_471_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_8_471_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_469_8_471_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 472 8 ]
+        %tmp.6 = lgetv %value;
+        symbol [ value %tmp.6 472 15 20 ];
+        ret %tmp.6;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_468_49_473_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 475; @symbol_functiondef = [max3,475,13,17]; @symbol_param<0> = [a,475,18,19]; @symbol_param<0>_type<0> = [Number,475,23,29]; @symbol_param<1> = [b,475,31,32]; @symbol_param<1>_type<0> = [Number,475,36,42]; @symbol_param<2> = [c,475,44,45]; @symbol_param<2>_type<0> = [Number,475,49,55]; @symbol_return<0> = [Number,475,60,66]; ]
+    function max3(a as Number, b as Number, c as Number) as Number {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_475_67_484_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 476 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_475_67_484_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_475_67_484_4_stop" ]
+        %result.1 = local;
+        symbol [ result %result.1 476 12 18 ];
+        %tmp.1 = lgetv %a;
+        symbol [ a %tmp.1 476 21 22 ];
+        lputv %result.1 %tmp.1;
+        symbol [ result %result.1 476 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 477 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_8_479_8_if_stmt:
+        %tmp.2 = lgetv %b;
+        symbol [ b %tmp.2 477 12 13 ];
+        %tmp.3 = lgetv %result.1;
+        symbol [ result %tmp.3 477 16 22 ];
+        %tmp.4 = gt %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_8_479_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_8_479_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_24_479_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 478 12 ]
+        %tmp.5 = lgetv %b;
+        symbol [ b %tmp.5 478 21 22 ];
+        lputv %result.1 %tmp.5;
+        symbol [ result %result.1 478 12 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_24_479_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_8_479_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_477_8_479_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 480 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_8_482_8_if_stmt:
+        %tmp.6 = lgetv %c;
+        symbol [ c %tmp.6 480 12 13 ];
+        %tmp.7 = lgetv %result.1;
+        symbol [ result %tmp.7 480 16 22 ];
+        %tmp.8 = gt %tmp.6 %tmp.7;
+        bf %tmp.8 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_8_482_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_8_482_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_24_482_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 481 12 ]
+        %tmp.9 = lgetv %c;
+        symbol [ c %tmp.9 481 21 22 ];
+        lputv %result.1 %tmp.9;
+        symbol [ result %result.1 481 12 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_24_482_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_8_482_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_480_8_482_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 483 8 ]
+        %tmp.10 = lgetv %result.1;
+        symbol [ result %tmp.10 483 15 21 ];
+        ret %tmp.10;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_475_67_484_4_stop:
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 486; @symbol_functiondef = [min3,486,13,17]; @symbol_param<0> = [a,486,18,19]; @symbol_param<0>_type<0> = [Number,486,23,29]; @symbol_param<1> = [b,486,31,32]; @symbol_param<1>_type<0> = [Number,486,36,42]; @symbol_param<2> = [c,486,44,45]; @symbol_param<2>_type<0> = [Number,486,49,55]; @symbol_return<0> = [Number,486,60,66]; ]
+    function min3(a as Number, b as Number, c as Number) as Number {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_486_67_495_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 487 8 ]
+        [ "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_486_67_495_4_start" "_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_486_67_495_4_stop" ]
+        %result.1 = local;
+        symbol [ result %result.1 487 12 18 ];
+        %tmp.1 = lgetv %a;
+        symbol [ a %tmp.1 487 21 22 ];
+        lputv %result.1 %tmp.1;
+        symbol [ result %result.1 487 12 18 ];
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 488 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_8_490_8_if_stmt:
+        %tmp.2 = lgetv %b;
+        symbol [ b %tmp.2 488 12 13 ];
+        %tmp.3 = lgetv %result.1;
+        symbol [ result %tmp.3 488 16 22 ];
+        %tmp.4 = lt %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_8_490_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_8_490_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_24_490_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 489 12 ]
+        %tmp.5 = lgetv %b;
+        symbol [ b %tmp.5 489 21 22 ];
+        lputv %result.1 %tmp.5;
+        symbol [ result %result.1 489 12 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_24_490_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_8_490_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_488_8_490_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 491 8 ]
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_8_493_8_if_stmt:
+        %tmp.6 = lgetv %c;
+        symbol [ c %tmp.6 491 12 13 ];
+        %tmp.7 = lgetv %result.1;
+        symbol [ result %tmp.7 491 16 22 ];
+        %tmp.8 = lt %tmp.6 %tmp.7;
+        bf %tmp.8 @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_8_493_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_8_493_8_if_true:
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_24_493_8_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 492 12 ]
+        %tmp.9 = lgetv %c;
+        symbol [ c %tmp.9 492 21 22 ];
+        lputv %result.1 %tmp.9;
+        symbol [ result %result.1 492 12 18 ];
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_24_493_8_stop:
+        goto @_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_8_493_8_if_end;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_491_8_493_8_if_end:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc" 494 8 ]
+        %tmp.10 = lgetv %result.1;
+        symbol [ result %tmp.10 494 15 21 ];
+        ret %tmp.10;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicBallView_mc_486_67_495_4_stop:
+    }
+}
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicBallView.mc"; @line = 1; ]
+<init> {
+}

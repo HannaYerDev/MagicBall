@@ -1,0 +1,38 @@
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Application,1,14,25]; ]
+import Toybox.Application;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 4; @symbol_classdef = [MagicAnswer,4,6,17]; ]
+class MagicAnswer {
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 5; @position = 8; @symbol_vardef = [text,5,8,12]; ]
+    var text;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 6; @position = 8; @symbol_vardef = [kind,6,8,12]; ]
+    var kind;
+    [ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 8; @symbol_functiondef = [initialize,8,13,23]; @symbol_param<0> = [text,8,24,28]; @symbol_param<1> = [kind,8,30,34]; ]
+    function initialize(text, kind) as Void {
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicAnswer_mc_8_36_11_4_start:
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc" 9 8 ]
+        symbol [ self %self 9 8 12 ];
+        %tmp.1 = lgetv %text;
+        symbol [ text %tmp.1 9 20 24 ];
+        symbol [ text ? 9 13 17 ];
+        putv self :text %tmp.1;
+[ "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc" 10 8 ]
+        symbol [ self %self 10 8 12 ];
+        %tmp.2 = lgetv %kind;
+        symbol [ kind %tmp.2 10 20 24 ];
+        symbol [ kind ? 10 13 17 ];
+        putv self :kind %tmp.2;
+_Users_hanna_Projects_HannaYerDev_garmin_MagicBall_MagicBall_source_MagicAnswer_mc_8_36_11_4_stop:
+    }
+}
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/MagicAnswer.mc"; @line = 1; ]
+<init> {
+}

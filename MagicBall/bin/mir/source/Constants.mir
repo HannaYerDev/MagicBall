@@ -1,0 +1,9 @@
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/Constants.mc"; @line = 1; @position = 6; @symbol_constdef = [ANSWER_POSITIVE,1,6,21]; @symbol_symbolConst = [positive,1,25,33]; ]
+const ANSWER_POSITIVE = :positive;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/Constants.mc"; @line = 2; @position = 6; @symbol_constdef = [ANSWER_NEGATIVE,2,6,21]; @symbol_symbolConst = [negative,2,25,33]; ]
+const ANSWER_NEGATIVE = :negative;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/Constants.mc"; @line = 3; @position = 6; @symbol_constdef = [ANSWER_NEUTRAL,3,6,20]; @symbol_symbolConst = [neutral,3,25,32]; ]
+const ANSWER_NEUTRAL = :neutral;
+[ @file = "/Users/hanna/Projects/HannaYerDev/garmin/MagicBall/MagicBall/source/Constants.mc"; @line = 1; ]
+<init> {
+}

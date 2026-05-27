@@ -1,0 +1,13 @@
+<layout id="MainLayout"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+
+    <label
+        id="AskLabel"
+        x="center"
+        y="center"
+        text="ASK"
+        font="Graphics.FONT_SMALL"
+        justification="Graphics.TEXT_JUSTIFY_CENTER"
+        color="Graphics.COLOR_WHITE" />
+</layout>
